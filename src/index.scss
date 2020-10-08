@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+nav {
+  background-color: #b71c1c;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  color: white;
+  font-family: Montserrat, sans-serif;
+  height: 8vh;
+
+  #logo {
+    display: grid;
+    place-items: center;
+  }
+  ul {
+    display: flex;
+    width: 50%;
+    list-style: none;
+    justify-content: space-around;
+    text-transform: uppercase;
+    align-items: center;
+  }
+}
+
+footer {
+  box-sizing: border-box;
+  background-color: #b71c1c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  color: white;
+  font-family: Montserrat, sans-serif;
+  height: 8vh;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+
+  ul {
+    list-style: none;
+  }
+
+  button {
+    background-color: #004ba0;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    height: 2rem;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+}
+
+main {
+  display: flex;
+  padding: 10px 5%;
+  justify-content: space-between;
+  width: 90vw;
+
+  img {
+    width: 45%;
+    background-size: cover;
+  }
+  .presentation {
+    width: 45%;
+  }
+}
