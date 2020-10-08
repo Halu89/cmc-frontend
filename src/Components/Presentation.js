@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 const Presentation = () => {
   return (
@@ -13,7 +13,9 @@ const Presentation = () => {
           ut quas nostrum vero aperiam quod nesciunt accusamus magnam quae magni
           sequi sit perferendis consectetur reiciendis rem!
         </p>
-        <button>Leçons</button>
+        <Link to="/lecons">
+          <button>Leçons</button>
+        </Link>
       </div>
       <img
         src="https://images.unsplash.com/photo-1532009877282-3340270e0529?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"

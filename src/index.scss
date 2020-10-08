@@ -1,23 +1,28 @@
-body {
+$base-color: #b71c1c;
+$light-base: #f05545;
+$dark-color: #7f0000;
+$text-color: white;
+$accent-color: #004ba0;
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  background-color: $light-base;
 }
 
 nav {
-  background-color: #b71c1c;
+  background-color: $dark-color;
   display: flex;
   justify-content: space-between;
   padding: 0 5%;
-  color: white;
+  color: $text-color;
   font-family: Montserrat, sans-serif;
   height: 8vh;
 
@@ -32,7 +37,21 @@ nav {
     justify-content: space-around;
     text-transform: uppercase;
     align-items: center;
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+    }
   }
+
+  .selected {
+    color: gray;
+  }
+}
+
+.App {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 footer {
@@ -41,42 +60,108 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
-  color: white;
+  padding: 0 15%;
+  color: $text-color;
   font-family: Montserrat, sans-serif;
   height: 8vh;
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
 
   ul {
     list-style: none;
   }
+}
 
-  button {
-    background-color: #004ba0;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    height: 2rem;
-    padding: 0 15px;
-    cursor: pointer;
-  }
+button {
+  background-color: $accent-color;
+  border: none;
+  color: $text-color;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  height: 2rem;
+  padding: 0 15px;
+  cursor: pointer;
 }
 
 main {
   display: flex;
   padding: 10px 5%;
   justify-content: space-between;
-  width: 90vw;
+  align-items: center;
+  min-height: 84vh;
 
   img {
+    padding: 0;
     width: 45%;
-    background-size: cover;
+    object-fit: contain;
   }
   .presentation {
     width: 45%;
+    padding-bottom: 8vh;
+  }
+}
+
+.lecons {
+  background-color: $light-base;
+  color: $dark-color;
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 15px;
+  }
+  .atelier {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid $accent-color;
+    color: $text-color;
+    width: 24%;
+
+    img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      display: grid;
+      text-align: center;
+      place-items: center;
+      margin: 0px 10px;
+      height: 15%;
+    }
+    p {
+      margin: 15px 15px;
+      line-height: 1.3rem;
+    }
+  }
+
+  .instrument {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid $accent-color;
+    color: $text-color;
+    width: 32%;
+    margin-top: 10px;
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .horaires {
+      margin: 10px;
+      ul {
+        list-style: none;
+        margin-left: 25px;
+      }
+    }
+    #prof-name {
+      margin: 10px;
+
+      #name {
+        font-weight: normal;
+      }
+    }
   }
 }
