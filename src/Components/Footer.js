@@ -1,11 +1,10 @@
 import React from "react";
 
-
-const Footer = () => {
+const Footer = (props) => {
   return (
     <footer>
       <div id="adress"> Adresse</div>
-      <button>Contact</button>
+      <button onClick={() => props.openModal()}>Contact</button>
       <ul>
         <li>Telephone :</li>
         <li>Email :</li>

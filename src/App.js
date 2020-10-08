@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Presentation from "./Components/Presentation";
 import Lecons from "./Components/Lecons";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import ContactForm from "./Components/Contact";
 
 function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   return (
     <div className="App">
       <BrowserRouter>
@@ -19,8 +28,13 @@ function App() {
             <Lecons />
           </Route>
         </Switch>
-        <Footer />
+        <Footer openModal={openModal} />
       </BrowserRouter>
+      <ContactForm
+        visibility={true || modalOpen} //For debugging
+        openModal={openModal}
+        closeModal={closeModal}
+      />
     </div>
   );
 }

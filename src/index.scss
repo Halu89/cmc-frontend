@@ -165,3 +165,58 @@ main {
     }
   }
 }
+
+.modal-parent {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(128, 128, 128, 0.767);
+  display: grid;
+  place-items: center;
+
+  #modal-children {
+    display: flex;
+
+    background-color: white;
+    width: 80vw;
+    height: 80vh;
+  }
+  #close-btn {
+    position: absolute;
+    top: 12vh;
+    right: 12vw;
+    font-size: 30px;
+  }
+  .contact-form {
+    width: 75%;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin-left: 10%;
+      margin-top: 25px;
+      input {
+        height: 2rem;
+      }
+
+      button {
+        margin-top: 20px;
+        width: 7rem;
+      }
+    }
+  }
+  #adress-recap {
+    display: grid;
+    place-items: center;
+    ul {
+      list-style: none;
+      line-height: 2rem;
+
+      span {
+        font-size: small;
+        padding-right: 10px;
+      }
+    }
+  }
+}

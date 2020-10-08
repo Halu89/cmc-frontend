@@ -209,4 +209,72 @@ main .presentation {
 .lecons .instrument #prof-name #name {
   font-weight: normal;
 }
+
+.modal-parent {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(128, 128, 128, 0.767);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.modal-parent #modal-children {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: white;
+  width: 80vw;
+  height: 80vh;
+}
+
+.modal-parent #close-btn {
+  position: absolute;
+  top: 12vh;
+  right: 12vw;
+  font-size: 30px;
+}
+
+.modal-parent .contact-form {
+  width: 75%;
+}
+
+.modal-parent .contact-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  margin-left: 10%;
+  margin-top: 25px;
+}
+
+.modal-parent .contact-form form input {
+  height: 2rem;
+}
+
+.modal-parent .contact-form form button {
+  margin-top: 20px;
+  width: 7rem;
+}
+
+.modal-parent #adress-recap {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.modal-parent #adress-recap ul {
+  list-style: none;
+  line-height: 2rem;
+}
+
+.modal-parent #adress-recap ul span {
+  font-size: small;
+  padding-right: 10px;
+}
 /*# sourceMappingURL=index.css.map */
