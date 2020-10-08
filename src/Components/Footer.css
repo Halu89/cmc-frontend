@@ -1,0 +1,26 @@
+footer {
+  background-color: #b71c1c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  color: white;
+  font-family: Montserrat, sans-serif;
+  height: 8vh;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background-color: #004BA0;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  height: 2rem;
+  padding: 0 15px;
+  cursor: pointer;
+}

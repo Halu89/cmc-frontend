@@ -1,0 +1,11 @@
+main {
+  display: flex;
+  padding: 5% 0;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+img {
+  width: 50vw;
+  background-size: cover;
+}
