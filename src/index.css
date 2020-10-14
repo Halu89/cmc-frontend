@@ -211,33 +211,56 @@ main .presentation {
 }
 
 .modal-parent {
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
+  position: fixed;
+  height: 100%;
+  width: 100%;
   background-color: rgba(128, 128, 128, 0.767);
   display: -ms-grid;
   display: grid;
   place-items: center;
+  color: #b71c1c;
 }
 
 .modal-parent #modal-children {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ". title close" "form form recap" ". . .";
+  -ms-grid-columns: 35% 30% 35%;
+      grid-template-columns: 35% 30% 35%;
+  -ms-grid-rows: 20% 70% 10%;
+      grid-template-rows: 20% 70% 10%;
   background-color: white;
   width: 80vw;
+  max-width: 1000px;
   height: 80vh;
 }
 
 .modal-parent #close-btn {
-  position: absolute;
-  top: 12vh;
-  right: 12vw;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: close;
   font-size: 30px;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin: 20px;
+}
+
+.modal-parent h1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: title;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .modal-parent .contact-form {
-  width: 75%;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: form;
 }
 
 .modal-parent .contact-form form {
@@ -248,13 +271,28 @@ main .presentation {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 50%;
   margin-left: 10%;
-  margin-top: 25px;
+}
+
+.modal-parent .contact-form form label {
+  margin: 0.5em 0;
 }
 
 .modal-parent .contact-form form input {
   height: 2rem;
+  padding-left: 10px;
+  width: 50%;
+  border-radius: 5px;
+  background-color: #f0564515;
+}
+
+.modal-parent .contact-form form textarea {
+  width: 80%;
+  height: 150px;
+  resize: none;
+  background-color: #f0564515;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .modal-parent .contact-form form button {
@@ -263,9 +301,12 @@ main .presentation {
 }
 
 .modal-parent #adress-recap {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: recap;
   display: -ms-grid;
   display: grid;
-  place-items: center;
+  justify-items: center;
 }
 
 .modal-parent #adress-recap ul {

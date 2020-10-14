@@ -30,11 +30,12 @@ function App() {
         </Switch>
         <Footer openModal={openModal} />
       </BrowserRouter>
-      <ContactForm
-        visibility={true || modalOpen} //For debugging
-        openModal={openModal}
-        closeModal={closeModal}
-      />
+      {modalOpen && (
+        <ContactForm
+          //For debugging
+          closeModal={closeModal}
+        />
+      )}
     </div>
   );
 }

@@ -1,10 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import logo from "../assets/logo.jpg";
 
 const Header = () => {
   return (
     <nav>
-      <div id="logo">Centre Musical Collois</div>
+      <div id="logo">
+        <img src={logo} alt="Logo" width="150px" height="100%"/>
+      </div>
       <ul>
         <li>
           <NavLink exact to="/" activeClassName="selected">
