@@ -53,7 +53,10 @@ class Actus extends React.Component {
       <div className="App">
         <ul>
           {articles.map((article) => (
-            <li key={article.id}>{article.Title}</li>
+            <>
+            <li key={article.id} style={{fontSize: "22px"}}>{article.Title}</li>
+            <li key={article.id + "2"} style={{color: "white"}}>{article.Article}</li>
+            </>
           ))}
         </ul>
       </div>
