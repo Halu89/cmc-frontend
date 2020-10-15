@@ -77,8 +77,8 @@ const Lecons = () => {
     },
   ];
   return (
-    <main>
-      <div className="lecons">
+    <main className="lecons">
+      <div className="ateliers">
         <h1>Ateliers</h1>
         <div className="cards">
           {ateliers.map((atelier, idx) => (
@@ -89,6 +89,8 @@ const Lecons = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="instruments">
         <h1>Instruments</h1>
         <div className="cards">
           {instruments.map((inst, idx) => (
@@ -102,7 +104,9 @@ const Lecons = () => {
                   ))}
                 </ul>
               </div>
-              <h3 id='prof-name'>Prof: <span id='name'> {inst.profName}</span></h3>
+              <h3 id="prof-name">
+                Prof: <span id="name"> {inst.profName}</span>
+              </h3>
             </div>
           ))}
         </div>

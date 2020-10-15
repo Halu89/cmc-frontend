@@ -3,13 +3,70 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Montserrat, "Roboto", sans-serif;
+  font-family: "Montserrat", "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #f05545;
+  background-color: #f5c8c8;
+}
+
+.App {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+}
+
+button {
+  background-color: #004ba0;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+main.main-presentation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 5%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 84vh;
+}
+
+main.main-presentation img {
+  padding: 0;
+  width: 45%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+main.main-presentation .presentation {
+  width: 45%;
+  padding-bottom: 8vh;
+}
+
+main.main-presentation .presentation h1 {
+  color: #7f0000;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+main.main-presentation .presentation button {
+  margin-top: 25px;
+  font-size: 25px;
+  padding: 0.6em 1.2em;
+  border-radius: 0.2em;
 }
 
 nav {
@@ -48,6 +105,7 @@ nav ul {
 
 nav ul a {
   text-decoration: none;
+  font-size: 20px;
   color: white;
 }
 
@@ -55,17 +113,10 @@ nav .selected {
   color: gray;
 }
 
-.App {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: auto 1fr auto;
-      grid-template-rows: auto 1fr auto;
-}
-
 footer {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: #b71c1c;
+  background-color: #7f0000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,50 +136,24 @@ footer ul {
   list-style: none;
 }
 
-button {
-  background-color: #004ba0;
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  height: 2rem;
-  padding: 0 15px;
-  cursor: pointer;
+main.lecons {
+  background-color: #f5c8c8;
+  color: #7f0000;
+  padding: 2% 3%;
 }
 
-main {
+main.lecons .ateliers {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px 5%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: 84vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 40px;
 }
 
-main img {
-  padding: 0;
-  width: 45%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-main .presentation {
-  width: 45%;
-  padding-bottom: 8vh;
-}
-
-.lecons {
-  background-color: #f05545;
-  color: #7f0000;
-}
-
-.lecons .cards {
+main.lecons .cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,7 +164,7 @@ main .presentation {
   margin-top: 15px;
 }
 
-.lecons .atelier {
+main.lecons .atelier {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -147,17 +172,16 @@ main .presentation {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 2px solid #004ba0;
-  color: white;
-  width: 24%;
+  color: black;
+  width: 22%;
 }
 
-.lecons .atelier img {
+main.lecons .atelier img {
   width: 100%;
   margin-bottom: 10px;
 }
 
-.lecons .atelier h2 {
+main.lecons .atelier h2 {
   display: -ms-grid;
   display: grid;
   text-align: center;
@@ -166,12 +190,16 @@ main .presentation {
   height: 15%;
 }
 
-.lecons .atelier p {
+main.lecons .atelier p {
   margin: 15px 15px;
   line-height: 1.3rem;
 }
 
-.lecons .instrument {
+main.lecons .instruments {
+  margin-bottom: 35px;
+}
+
+main.lecons .instrument {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -180,12 +208,12 @@ main .presentation {
       -ms-flex-direction: column;
           flex-direction: column;
   border: 2px solid #004ba0;
-  color: white;
-  width: 32%;
+  color: black;
+  width: 30%;
   margin-top: 10px;
 }
 
-.lecons .instrument img {
+main.lecons .instrument img {
   width: 100%;
   height: 200px;
   -o-object-fit: cover;
@@ -193,20 +221,20 @@ main .presentation {
   margin-bottom: 10px;
 }
 
-.lecons .instrument .horaires {
+main.lecons .instrument .horaires {
   margin: 10px;
 }
 
-.lecons .instrument .horaires ul {
+main.lecons .instrument .horaires ul {
   list-style: none;
   margin-left: 25px;
 }
 
-.lecons .instrument #prof-name {
+main.lecons .instrument #prof-name {
   margin: 10px;
 }
 
-.lecons .instrument #prof-name #name {
+main.lecons .instrument #prof-name #name {
   font-weight: normal;
 }
 
@@ -317,5 +345,44 @@ main .presentation {
 .modal-parent #adress-recap ul span {
   font-size: small;
   padding-right: 10px;
+}
+
+.actus {
+  display: block;
+}
+
+.actus .article-card {
+  margin-bottom: 25px;
+  margin-left: 25px;
+}
+
+.actus .article-card h2 {
+  color: #7f0000;
+  font-size: 2em;
+}
+
+.actus .article-card .date {
+  color: #1976d2;
+  font-size: small;
+  margin: 5px 0;
+}
+
+.actus .article-card hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  width: 40%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#333), to(#ccc));
+  background-image: linear-gradient(to right, #333, #ccc);
+  margin-bottom: 10px;
+}
+
+.actus .article-card .article-text {
+  margin-left: 5px;
+}
+
+.actus img {
+  max-width: 500px;
+  max-height: 500px;
 }
 /*# sourceMappingURL=index.css.map */

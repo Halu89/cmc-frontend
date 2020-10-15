@@ -1,14 +1,15 @@
 $base-color: #b71c1c;
-$light-base: #f05545;
+$light-base: #f5c8c8;
 $dark-color: #7f0000;
-$text-color: white;
+$text-dark: black;
+$text-light: white;
 $accent-color: #004ba0;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Montserrat, "Roboto", sans-serif;
+  font-family: "Montserrat", "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,13 +18,59 @@ body {
   background-color: $light-base;
 }
 
+.App {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+button {
+  background-color: $accent-color;
+  border: none;
+  color: $text-light;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+  padding: 10px 15px;
+  cursor: pointer;
+}
+// Homepage
+main.main-presentation {
+  display: flex;
+  padding: 10px 5%;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 84vh;
+
+  img {
+    padding: 0;
+    width: 45%;
+    object-fit: contain;
+  }
+  .presentation {
+    width: 45%;
+    padding-bottom: 8vh;
+    h1 {
+      color: $dark-color;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin-top: 25px;
+      font-size: 25px;
+      padding: 0.6em 1.2em;
+      border-radius: 0.2em;
+    }
+  }
+}
+
 // Navigation bar
 nav {
   background-color: $dark-color;
   display: flex;
   justify-content: space-between;
   padding: 0 5%;
-  color: $text-color;
+  color: $text-light;
   font-family: Montserrat, sans-serif;
   height: 8vh;
 
@@ -41,7 +88,8 @@ nav {
 
     a {
       text-decoration: none;
-      color: $text-color;
+      font-size: 20px;
+      color: $text-light;
     }
   }
 
@@ -50,20 +98,15 @@ nav {
   }
 }
 
-.App {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-
 // Footer
 footer {
   box-sizing: border-box;
-  background-color: #b71c1c;
+  background-color: $dark-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 15%;
-  color: $text-color;
+  color: $text-light;
   font-family: Montserrat, sans-serif;
   height: 8vh;
 
@@ -72,41 +115,16 @@ footer {
   }
 }
 
-button {
-  background-color: $accent-color;
-  border: none;
-  color: $text-color;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  height: 2rem;
-  padding: 0 15px;
-  cursor: pointer;
-}
-
-main {
-  display: flex;
-  padding: 10px 5%;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 84vh;
-
-  img {
-    padding: 0;
-    width: 45%;
-    object-fit: contain;
-  }
-  .presentation {
-    width: 45%;
-    padding-bottom: 8vh;
-  }
-}
-
 // Lessons page
-.lecons {
+main.lecons {
   background-color: $light-base;
   color: $dark-color;
-
+  padding: 2% 3%;
+  .ateliers {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
   .cards {
     display: flex;
     flex-wrap: wrap;
@@ -116,9 +134,8 @@ main {
   .atelier {
     display: flex;
     flex-direction: column;
-    border: 2px solid $accent-color;
-    color: $text-color;
-    width: 24%;
+    color: $text-dark;
+    width: 22%;
 
     img {
       width: 100%;
@@ -137,13 +154,15 @@ main {
       line-height: 1.3rem;
     }
   }
-
+  .instruments {
+    margin-bottom: 35px;
+  }
   .instrument {
     display: flex;
     flex-direction: column;
     border: 2px solid $accent-color;
-    color: $text-color;
-    width: 32%;
+    color: $text-dark;
+    width: 30%;
     margin-top: 10px;
     img {
       width: 100%;
@@ -251,5 +270,43 @@ main {
         padding-right: 10px;
       }
     }
+  }
+}
+
+// Actus
+.actus {
+  display: block;
+
+  .article-card {
+    margin-bottom: 25px;
+    margin-left: 25px;
+
+    h2 {
+      color: $dark-color;
+      font-size: 2em;
+    }
+    .date {
+      color: #1976d2;
+      font-size: small;
+      margin: 5px 0;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #333;
+      width: 40%;
+      background-image: linear-gradient(to right, #333, #ccc);
+      margin-bottom: 10px;
+    }
+
+    .article-text {
+      margin-left: 5px;
+    }
+  }
+  
+  img {
+    max-width: 500px;
+    max-height: 500px;
   }
 }

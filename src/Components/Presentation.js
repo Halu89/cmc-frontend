@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Presentation = () => {
   return (
-    <main>
+    <main className="main-presentation">
       <div className="presentation">
         <h1>Presentation</h1>
         <p>

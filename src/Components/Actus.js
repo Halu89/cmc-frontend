@@ -53,15 +53,26 @@ class Actus extends React.Component {
 
     return (
       <main className="actus">
-        {articles.map((article) => (
-          <div className="article-card" key={article.id}>
-            <h2 className="article-title">{article.Title}</h2>
-            <div
-              className="article-text"
-              dangerouslySetInnerHTML={{ __html: marked(article.Article) }}
-            ></div>
-          </div>
-        ))}
+        {articles.map((article) => {
+          const publishedAt = new Date(article.published_at);
+          const date = publishedAt.toLocaleDateString(undefined, {
+            weekday: "long",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          });
+          return (
+            <div className="article-card" key={article.id}>
+              <h2 className="article-title">{article.Title}</h2>
+              <div className="date">Publié le {date}</div>
+              <hr/>
+              <div
+                className="article-text"
+                dangerouslySetInnerHTML={{ __html: marked(article.Article) }}
+              ></div>
+            </div>
+          );
+        })}
       </main>
     );
   }
