@@ -3,6 +3,7 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Presentation from "./Components/Presentation";
 import Lecons from "./Components/Lecons";
+import Actus from "./Components/Actus";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ContactForm from "./Components/Contact";
@@ -23,6 +24,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Presentation />
+          </Route>
+          <Route exact path="/actus">
+            <Actus />
           </Route>
           <Route exact path="/lecons">
             <Lecons />
