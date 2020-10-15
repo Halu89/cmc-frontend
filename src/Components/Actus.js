@@ -1,5 +1,7 @@
 import React from "react";
+import marked from "marked";
 
+marked.setOptions({ breaks: true, baseUrl: process.env.REACT_APP_API_URI });
 class Actus extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +31,7 @@ class Actus extends React.Component {
     };
 
     try {
-      const articles = await fetch("http://localhost:1337/articles", {
+      const articles = await fetch(process.env.REACT_APP_API_URI + "articles", {
         method: "GET",
         headers: headers,
       })
@@ -50,16 +52,17 @@ class Actus extends React.Component {
     }
 
     return (
-      <div className="App">
-        <ul>
-          {articles.map((article) => (
-            <>
-            <li key={article.id} style={{fontSize: "22px"}}>{article.Title}</li>
-            <li key={article.id + "2"} style={{color: "white"}}>{article.Article}</li>
-            </>
-          ))}
-        </ul>
-      </div>
+      <main className="actus">
+        {articles.map((article) => (
+          <div className="article-card" key={article.id}>
+            <h2 className="article-title">{article.Title}</h2>
+            <div
+              className="article-text"
+              dangerouslySetInnerHTML={{ __html: marked(article.Article) }}
+            ></div>
+          </div>
+        ))}
+      </main>
     );
   }
 }
