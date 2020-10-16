@@ -5,7 +5,7 @@ const Presentation = () => {
   return (
     <main className="main-presentation">
       <div className="presentation">
-        <h1>Presentation</h1>
+        <h1>Présentation</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo libero
           totam exercitationem quidem? Praesentium similique incidunt

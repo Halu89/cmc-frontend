@@ -33,13 +33,8 @@ function App() {
           </Route>
         </Switch>
         <Footer openModal={openModal} />
+        {modalOpen && <ContactForm closeModal={closeModal} />}
       </BrowserRouter>
-      {modalOpen && (
-        <ContactForm
-          //For debugging
-          closeModal={closeModal}
-        />
-      )}
     </div>
   );
 }
