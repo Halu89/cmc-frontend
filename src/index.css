@@ -37,7 +37,7 @@ button:hover {
   margin: 0;
 }
 
-main.main-presentation {
+.main-presentation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,28 +48,28 @@ main.main-presentation {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 84vh;
+  min-height: 81vh;
 }
 
-main.main-presentation img {
+.main-presentation img {
   padding: 0;
   width: 45%;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-main.main-presentation .presentation {
+.main-presentation .presentation {
   width: 45%;
   padding-bottom: 8vh;
 }
 
-main.main-presentation .presentation h1 {
+.main-presentation .presentation h1 {
   color: #7f0000;
   font-size: 3em;
   margin-bottom: 20px;
 }
 
-main.main-presentation .presentation button {
+.main-presentation .presentation button {
   margin-top: 25px;
   font-size: 25px;
   padding: 0.6em 1.2em;
