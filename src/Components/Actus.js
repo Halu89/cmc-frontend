@@ -4,7 +4,7 @@ import marked from "marked";
 // INSERTS target="_blank" INTO HREF TAGS
 const renderer = new marked.Renderer();
 renderer.link = function (href, title, text) {
-  return `<a target="_blank" href="${href}">${text}` + "</a>";
+  return `<a target="_blank" href="${href}">${text}</a>`;
 };
 marked.setOptions({
   breaks: true, // Insert line breaks on single line break

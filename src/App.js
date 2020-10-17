@@ -6,7 +6,7 @@ import Lecons from "./Components/Lecons";
 import Actus from "./Components/Actus";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ContactForm from "./Components/Contact";
+import ContactModal from "./Components/ContactModal";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -33,7 +33,7 @@ function App() {
           </Route>
         </Switch>
         <Footer openModal={openModal} />
-        {modalOpen && <ContactForm closeModal={closeModal} />}
+        {modalOpen && <ContactModal closeModal={closeModal} />}
       </BrowserRouter>
     </div>
   );
