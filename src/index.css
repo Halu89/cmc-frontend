@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -331,6 +332,13 @@ main.lecons .instrument #prof-name #name {
 
 .modal-parent .contact-form form label {
   margin: 0.5em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .modal-parent .contact-form form input {
@@ -340,6 +348,26 @@ main.lecons .instrument #prof-name #name {
   border-radius: 5px;
   border: 1px solid #7f0000;
   background-color: #f0564515;
+}
+
+.modal-parent .contact-form form input + span::after {
+  position: absolute;
+  top: -1.7rem;
+  left: 51%;
+}
+
+.modal-parent .contact-form form input:valid + span::after {
+  content: "✓";
+  color: green;
+}
+
+.modal-parent .contact-form form input:invalid + span::after {
+  content: "X";
+  color: red;
+}
+
+.modal-parent .contact-form form span {
+  position: relative;
 }
 
 .modal-parent .contact-form form textarea {
