@@ -222,15 +222,14 @@ main.lecons {
     display: grid;
     grid-template-areas:
       ". title close"
-      "form form recap"
-      ". . .";
+      "form form recap";
 
     grid-template-columns: 35% 30% 35%;
-    grid-template-rows: 20% 70% 10%;
+    grid-template-rows: 20% 1fr;
     background-color: white;
     width: 80vw;
     max-width: 1000px;
-    height: 80vh;
+    height: 700px;
     min-height: 600px;
   }
   #close-btn {
@@ -250,6 +249,7 @@ main.lecons {
   }
   .contact-form {
     grid-area: form;
+    height: auto;
 
     form {
       display: flex;
@@ -293,7 +293,7 @@ main.lecons {
       }
 
       button {
-        margin-top: 20px;
+        margin: 20px 0;
         width: 7rem;
       }
     }

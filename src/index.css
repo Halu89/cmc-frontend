@@ -274,15 +274,15 @@ main.lecons .instrument #prof-name #name {
 .modal-parent #modal-children {
   display: -ms-grid;
   display: grid;
-      grid-template-areas: ". title close" "form form recap" ". . .";
+      grid-template-areas: ". title close" "form form recap";
   -ms-grid-columns: 35% 30% 35%;
       grid-template-columns: 35% 30% 35%;
-  -ms-grid-rows: 20% 70% 10%;
-      grid-template-rows: 20% 70% 10%;
+  -ms-grid-rows: 20% 1fr;
+      grid-template-rows: 20% 1fr;
   background-color: white;
   width: 80vw;
   max-width: 1000px;
-  height: 80vh;
+  height: 700px;
   min-height: 600px;
 }
 
@@ -317,6 +317,7 @@ main.lecons .instrument #prof-name #name {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: form;
+  height: auto;
 }
 
 .modal-parent .contact-form form {
@@ -376,7 +377,7 @@ main.lecons .instrument #prof-name #name {
 }
 
 .modal-parent .contact-form form button {
-  margin-top: 20px;
+  margin: 20px 0;
   width: 7rem;
 }
 
