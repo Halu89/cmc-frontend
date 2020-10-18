@@ -361,11 +361,6 @@ main.lecons .instrument #prof-name #name {
   color: green;
 }
 
-.modal-parent .contact-form form input:invalid + span::after {
-  content: "X";
-  color: red;
-}
-
 .modal-parent .contact-form form span {
   position: relative;
 }

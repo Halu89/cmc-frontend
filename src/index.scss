@@ -278,11 +278,7 @@ main.lecons {
         content: "✓";
         color: green;
       }
-      input:invalid + span::after {
-        content: "X";
-        color: red;
-      }
-      
+
       span {
         position: relative;
       }
