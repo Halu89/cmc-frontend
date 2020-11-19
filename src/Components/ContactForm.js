@@ -79,7 +79,7 @@ class ContactForm extends Component {
       <div className="contact-form">
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">
-            Nom :
+            Votre Nom :
             <input
               type="text"
               name="name"
@@ -92,7 +92,7 @@ class ContactForm extends Component {
             <span>{touched.name && errors.name}</span>
           </label>
           <label htmlFor="email">
-            Email :
+            Votre Email :
             <input
               type="email"
               name="email"
