@@ -35,7 +35,7 @@ const Lecons = () => {
   const instruments = [
     {
       title: "Guitare",
-      horaires: ["Lundi 18h - 20h30", "Samedi 10h - 12h"],
+      horaires: ["Lundi 18h - 20h30", "Samedi 10h - 12h","Lundi 18h - 20h30", "Samedi 10h - 12h"],
       profName: "Brigitte Thérias",
       imageUrl:
         "https://images.unsplash.com/photo-1546058256-47154de4046c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
@@ -49,7 +49,7 @@ const Lecons = () => {
     },
     {
       title: "Clarinette",
-      horaires: ["Lundi 18h - 20h30"],
+      horaires: ["Lundi 18h - 20h30", "Lundi 18h - 20h30", "Samedi 10h - 12h"],
       profName: "Brigitte Thérias",
       imageUrl:
         "https://images.unsplash.com/photo-1546058256-47154de4046c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",

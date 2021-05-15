@@ -1,15 +1,15 @@
 $base-color: #b71c1c;
-$light-base: #f5c8c8;
+$light-base: #e6fbfc;
 $dark-color: #7f0000;
 $text-dark: black;
-$text-light: white;
+$text-light: #fe4600;
 $accent-color: #004ba0;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", "Roboto", sans-serif;
+  font-family: "Indie Flower", "Montserrat", "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -25,7 +25,8 @@ body {
 button {
   background-color: $accent-color;
   border: none;
-  color: $text-light;
+  border-radius: 0.2em;
+  color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -39,6 +40,7 @@ button {
     margin: 0;
   }
 }
+
 // Homepage
 .main-presentation {
   display: flex;
@@ -47,32 +49,62 @@ button {
   align-items: center;
   min-height: 81vh;
 
-  img {
+  svg {
     padding: 0;
-    width: 45%;
-    object-fit: contain;
+    width: 55%;
+    height: 550px;
   }
   .presentation {
     width: 45%;
     padding-bottom: 8vh;
+    display: flex;
+    flex-direction: column;
+
     h1 {
-      color: $dark-color;
-      font-size: 3em;
+      display: none;
+      color: $text-light;
+      font-size: 2em;
       margin-bottom: 20px;
+      padding-right: 20px;
+      text-align: right;
+    }
+    .presentation-paragraph {
+      padding: 5vh 5vw;
+      line-height: 1.8em;
     }
 
+    a {
+      align-self: center;
+      position: relative;
+      left: 25px;
+    }
     button {
-      margin-top: 25px;
       font-size: 25px;
-      padding: 0.6em 1.2em;
-      border-radius: 0.2em;
+      padding: 0.5em 1.2em;
+      box-shadow: 4px 6px 27px $accent-color;
+      transition-duration: 0.2s;
+      transition-property: background-color, box-shadow;
+
+      &:hover {
+        box-shadow: 4px 6px 27px $base-color;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    svg {
+      display: none;
+    }
+
+    .presentation {
+      width: 90%;
     }
   }
 }
 
 // Navigation bar
 nav {
-  background-color: $dark-color;
+  background-color: $light-base;
   display: flex;
   justify-content: space-between;
   padding: 0 5%;
@@ -84,23 +116,46 @@ nav {
     display: grid;
     place-items: center;
   }
+
   ul {
     display: flex;
-    width: 50%;
+    width: 600px;
     list-style: none;
     justify-content: space-around;
     text-transform: uppercase;
     align-items: center;
+    position: relative;
+
+    &::after {
+      content: "";
+      border-bottom: 2px solid $text-light;
+      width: clamp(700px, 50vw, 1200px);
+      position: absolute;
+      top: 6vh;
+      right: 5%;
+    }
 
     a {
-      padding-bottom: 5px;
       text-decoration: none;
-      font-size: 18px;
-      font-weight: lighter;
+      font-size: 32px;
       color: $text-light;
+      position: relative;
 
       &:hover:not(.selected) {
-        border-bottom: 2px solid white;
+        color: $dark-color;
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 10px;
+          display: block;
+          border-radius: 50%;
+          box-shadow: inset 0 3px 4px 0px #00000018;
+          z-index: 2;
+          position: absolute;
+          bottom: 0px;
+          left: -4px;
+        }
       }
     }
   }
@@ -114,21 +169,43 @@ nav {
 // Footer
 footer {
   box-sizing: border-box;
-  background-color: $dark-color;
+  background-color: #f5c8c8;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15%;
-  color: $text-light;
-  font-family: Montserrat, sans-serif;
+  // padding: 0 15%;
+  color: $dark-color;
   height: 13vh;
-
+  position: relative;
   ul {
     list-style: none;
   }
   #adress {
-    font-size: 11px;
+    width: 35%;
+  }
+  #footer-contact {
+    width: 45%;
+  }
+  #footer-copyright {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    font-size: 10px;
+    opacity: 0.5;
+  }
+  #adress li {
+    // font-family: "Montserrat", sans-serif !important;
+    font-size: 12px;
     text-align: end;
+  }
+  button {
+    margin-right: 35px;
+    margin-left: 35px;
+    transition-duration: 0.2s;
+
+    &:hover {
+      box-shadow: 2px 3px 10px $dark-color;
+    }
   }
 }
 
@@ -136,67 +213,98 @@ footer {
 main.lecons {
   background-color: $light-base;
   color: $dark-color;
-  padding: 2% 3%;
+  padding: 20px 15%;
+
   .ateliers {
     display: flex;
     flex-direction: column;
     margin-bottom: 40px;
   }
   .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
     margin-top: 15px;
+
+    @media screen and (min-width: 800px) {
+      justify-content: space-around;
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
+
   .atelier {
-    display: flex;
-    flex-direction: column;
     color: $text-dark;
-    width: 22%;
+    margin: 10px 0 20px 0;
+
+    @media screen and (min-width: 800px) {
+      flex: 0 1 calc(50% - 5em);
+    }
+    @media screen and (min-width: 1300px) {
+      flex: 0 1 calc(25% - 1em);
+      max-width: 320px;
+    }
 
     img {
       width: 100%;
-      margin-bottom: 10px;
     }
 
     h2 {
-      display: grid;
       text-align: center;
-      place-items: center;
-      margin: 0px 10px;
-      height: 15%;
+      font-size: 26px;
     }
+
     p {
-      margin: 15px 15px;
+      // margin: 15px 25px;
       line-height: 1.3rem;
+      font-size: 18px;
     }
   }
   .instruments {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 35px;
   }
+  @media screen and (min-width: 600px) {
+    .cards {
+      justify-content: space-around;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .instrument {
+      flex: 0 1 calc(50% - 1em);
+    }
+  }
+
   .instrument {
     display: flex;
     flex-direction: column;
-    border: 2px solid $accent-color;
+    // border: 2px solid $accent-color;
     color: $text-dark;
-    width: 30%;
-    margin-top: 10px;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 900px) {
+      flex: 0 1 calc(33% - 1em);
+      max-width: 320px;
+    }
+
     img {
-      width: 100%;
+      width: 90%;
       height: 200px;
       object-fit: cover;
       margin-bottom: 10px;
+      align-self: center;
     }
 
     .horaires {
-      margin: 10px;
+      margin: 0 10px;
+      display: flex;
+      flex-direction: column;
       ul {
+        align-self: center;
         list-style: none;
-        margin-left: 25px;
+        position: relative;
       }
     }
     #prof-name {
-      margin: 10px;
+      margin: 5px 10px;
 
       #name {
         font-weight: normal;
@@ -317,6 +425,7 @@ main.lecons {
 // Actus
 .actus {
   display: block;
+  padding: 20px 15%;
 
   .article-card {
     margin-bottom: 25px;
@@ -349,5 +458,16 @@ main.lecons {
   img {
     max-width: 500px;
     max-height: 500px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  // TODO
+
+  nav {
+    display: none;
+  }
+  footer {
+    display: none;
   }
 }
