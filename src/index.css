@@ -11,7 +11,16 @@
 
 body {
   background-color: #e6fbfc;
+  position: relative;
   min-height: 100vh;
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  padding: 2rem 10% 6rem 10%;
 }
 
 .App {
@@ -23,13 +32,12 @@ body {
 
 button {
   background-color: #004ba0;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 0.2em;
   color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 1px;
   padding: 10px 15px;
   cursor: pointer;
 }
@@ -37,14 +45,14 @@ button {
 button:hover {
   background-color: #b71c1c;
   border: 1px solid white;
-  margin: 0;
+  -webkit-box-shadow: 2px 3px 10px #7f0000;
+          box-shadow: 2px 3px 10px #7f0000;
 }
 
 .main-presentation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px 5%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -112,7 +120,7 @@ button:hover {
           box-shadow: 4px 6px 27px #b71c1c;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 60em) {
   .main-presentation svg {
     display: none;
   }
@@ -129,16 +137,20 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 5%;
   color: #fe4600;
   font-family: Montserrat, sans-serif;
-  height: 6vh;
+  z-index: 1;
 }
 
 nav #logo {
   display: -ms-grid;
   display: grid;
   place-items: center;
+  padding: 2em;
+}
+
+nav #logo img {
+  width: 150px;
 }
 
 nav ul {
@@ -146,13 +158,13 @@ nav ul {
   display: -ms-flexbox;
   display: flex;
   width: 600px;
-  list-style: none;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   text-transform: uppercase;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-right: 2em;
   position: relative;
 }
 
@@ -161,7 +173,7 @@ nav ul::after {
   border-bottom: 2px solid #fe4600;
   width: clamp(700px, 50vw, 1200px);
   position: absolute;
-  top: 6vh;
+  bottom: 2rem;
   right: 5%;
 }
 
@@ -199,58 +211,25 @@ nav .mobile-menu {
   display: none;
 }
 
-@media screen and (max-width: 60em) {
-  nav ul {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    position: absolute;
-    top: -100%;
-    right: 1em;
-    -webkit-transition: all .5s ease-out;
-    transition: all .5s ease-out;
-    background: -webkit-gradient(linear, left top, left bottom, from(#92c3c5), color-stop(90%, transparent));
-    background: linear-gradient(#92c3c5, transparent 90%);
-    z-index: 1;
-    width: 100vw;
-  }
-  nav ul::after {
-    display: none;
-  }
-  nav .active {
-    top: 0em;
-    padding: 3em;
-  }
-  nav .mobile-menu {
-    display: block;
-    z-index: 2;
-  }
-  nav #logo {
-    z-index: 2;
-  }
+nav .navbar-contact-link {
+  display: none;
 }
 
 footer {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   background-color: #f5c8c8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   color: #7f0000;
-  height: 13vh;
-  position: relative;
-}
-
-footer ul {
-  list-style: none;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 6rem;
 }
 
 footer #adress {
@@ -281,15 +260,9 @@ footer button {
           transition-duration: 0.2s;
 }
 
-footer button:hover {
-  -webkit-box-shadow: 2px 3px 10px #7f0000;
-          box-shadow: 2px 3px 10px #7f0000;
-}
-
 main.lecons {
   background-color: #e6fbfc;
   color: #7f0000;
-  padding: 20px 15%;
 }
 
 main.lecons .ateliers {
@@ -436,7 +409,6 @@ main.lecons .instrument .horaires ul {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  list-style: none;
   position: relative;
 }
 
@@ -457,8 +429,7 @@ main.lecons .instrument #prof-name #name {
   display: grid;
   place-items: center;
   color: #b71c1c;
-  max-height: 100vh;
-  overflow-y: auto;
+  z-index: 3;
 }
 
 .modal-parent #modal-children {
@@ -472,7 +443,7 @@ main.lecons .instrument #prof-name #name {
   background-color: white;
   width: 80vw;
   max-width: 1000px;
-  height: 80vh;
+  height: auto;
   min-height: 600px;
 }
 
@@ -580,7 +551,6 @@ main.lecons .instrument #prof-name #name {
 }
 
 .modal-parent #adress-recap ul {
-  list-style: none;
   line-height: 2rem;
 }
 
@@ -629,9 +599,83 @@ main.lecons .instrument #prof-name #name {
   max-height: 500px;
 }
 
-@media screen and (max-width: 800px) {
-  footer {
+@media screen and (max-width: 60em) {
+  nav ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: -webkit-gradient(linear, left top, left bottom, from(#92c3c5), to(#e6fbfc));
+    background: linear-gradient(#92c3c5, #e6fbfc);
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  nav ul .navbar-contact-link {
+    display: inline-block;
+  }
+  nav ul::after {
     display: none;
+  }
+  nav .active {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    padding: 3em 0 3em 0;
+  }
+  nav .mobile-menu {
+    display: block;
+    z-index: 2;
+    position: fixed;
+    right: 1em;
+    padding-top: 1em;
+  }
+  nav #logo {
+    z-index: 1;
+  }
+  main {
+    padding-bottom: 14rem;
+  }
+  footer {
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 14rem;
+  }
+  footer #adress,
+  footer #footer-contact {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  footer #adress li,
+  footer #footer-contact li {
+    text-align: left;
+  }
+  footer .contact-button button {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 1rem;
+  }
+  footer #adress {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    width: calc(min(80%, 200px));
+  }
+  footer #footer-contact {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    width: calc(min(80%, 360px));
+    padding-bottom: 1em;
   }
 }
 /*# sourceMappingURL=index.css.map */

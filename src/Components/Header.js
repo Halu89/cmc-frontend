@@ -1,17 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.jpg";
-import RainbowText from './RainbowText'
 
 const Header = () => {
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(false);
   const handleClick = () => setIsActive(!isActive);
   const closeMobileMenu = () => setIsActive(false);
 
   return (
     <nav>
       <div id="logo">
-        <img src={logo} alt="Logo" width="150px" height="100%"/>
+        <img src={logo} alt="Logo" />
       </div>
       <ul className={isActive ? "active" : ""}>
         <li onClick={closeMobileMenu}>
@@ -28,6 +27,9 @@ const Header = () => {
           <NavLink exact to="/actus" activeClassName="selected">
             Actus
           </NavLink>
+        </li>
+        <li className="navbar-contact-link">
+          <a href="#footer-contact">Contact</a>
         </li>
       </ul>
       <div className="mobile-menu">

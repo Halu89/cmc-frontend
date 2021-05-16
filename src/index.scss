@@ -16,7 +16,14 @@ $accent-color: #004ba0;
 
 body {
   background-color: $light-base;
+  position: relative;
   min-height: 100vh;
+}
+ul {
+  list-style: none;
+}
+main {
+  padding: 2rem 10% 6rem 10%;
 }
 
 .App {
@@ -25,27 +32,25 @@ body {
 }
 button {
   background-color: $accent-color;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 0.2em;
   color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 1px;
   padding: 10px 15px;
   cursor: pointer;
 
   &:hover {
     background-color: $base-color;
     border: 1px solid white;
-    margin: 0;
+    box-shadow: 2px 3px 10px $dark-color;
   }
 }
 
 // Homepage
 .main-presentation {
   display: flex;
-  padding: 10px 5%;
   justify-content: space-between;
   align-items: center;
   min-height: 81vh;
@@ -92,7 +97,7 @@ button {
     }
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 60em) {
     svg {
       display: none;
     }
@@ -108,23 +113,25 @@ nav {
   background-color: $light-base;
   display: flex;
   justify-content: space-between;
-  padding: 0 5%;
   color: $text-light;
   font-family: Montserrat, sans-serif;
-  height: 6vh;
-
+  z-index: 1;
   #logo {
     display: grid;
     place-items: center;
+    padding: 2em;
+    img {
+      width: 150px;
+    }
   }
 
   ul {
     display: flex;
     width: 600px;
-    list-style: none;
     justify-content: space-around;
     text-transform: uppercase;
     align-items: center;
+    padding-right: 2em;
     position: relative;
 
     &::after {
@@ -132,7 +139,7 @@ nav {
       border-bottom: 2px solid $text-light;
       width: clamp(700px, 50vw, 1200px);
       position: absolute;
-      top: 6vh;
+      bottom: 2rem;
       right: 5%;
     }
 
@@ -168,49 +175,23 @@ nav {
   .mobile-menu {
     display: none;
   }
-
-  @media screen and (max-width: 60em) {
-    ul {
-      flex-direction: column;
-      position: absolute;
-      top: -100%;
-      right: 1em;
-      transition: all .5s ease-out;
-      background: linear-gradient(#92c3c5, transparent 90%);
-      z-index: 1;
-      width: 100vw;
-      &::after {
-        display: none;
-      }
-    }
-    .active {
-      top: 0em;
-      padding: 3em;
-    }
-    .mobile-menu {
-      display: block;
-      z-index: 2;
-    }
-    #logo {
-      z-index: 2;
-    }
+  .navbar-contact-link {
+    display: none;
   }
 }
 
 // Footer
 footer {
-  box-sizing: border-box;
   background-color: #f5c8c8;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  // padding: 0 15%;
   color: $dark-color;
-  height: 13vh;
-  position: relative;
-  ul {
-    list-style: none;
-  }
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 6rem;
+
   #adress {
     width: 35%;
   }
@@ -225,7 +206,6 @@ footer {
     opacity: 0.5;
   }
   #adress li {
-    // font-family: "Montserrat", sans-serif !important;
     font-size: 12px;
     text-align: end;
   }
@@ -233,10 +213,6 @@ footer {
     margin-right: 35px;
     margin-left: 35px;
     transition-duration: 0.2s;
-
-    &:hover {
-      box-shadow: 2px 3px 10px $dark-color;
-    }
   }
 }
 
@@ -244,7 +220,6 @@ footer {
 main.lecons {
   background-color: $light-base;
   color: $dark-color;
-  padding: 20px 15%;
 
   .ateliers {
     display: flex;
@@ -333,7 +308,6 @@ main.lecons {
       flex-direction: column;
       ul {
         align-self: center;
-        list-style: none;
         position: relative;
       }
     }
@@ -356,9 +330,7 @@ main.lecons {
   display: grid;
   place-items: center;
   color: $base-color;
-
-  max-height: 100vh;
-  overflow-y: auto;
+  z-index: 3;
 
   #modal-children {
     display: grid;
@@ -372,7 +344,7 @@ main.lecons {
     background-color: white;
     width: 80vw;
     max-width: 1000px;
-    height: 80vh;
+    height: auto;
     min-height: 600px;
   }
   #close-btn {
@@ -445,9 +417,7 @@ main.lecons {
     display: grid;
     justify-items: center;
     ul {
-      list-style: none;
       line-height: 2rem;
-
       span {
         font-size: small;
         padding-right: 10px;
@@ -495,10 +465,71 @@ main.lecons {
   }
 }
 
-@media screen and (max-width: 800px) {
-  // TODO
+// Mobile Design
+@media screen and (max-width: 60em) {
+  nav {
+    ul {
+      flex-direction: column;
+      background: linear-gradient(#92c3c5, $light-base);
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+      transform: translateY(-100%);
 
+      .navbar-contact-link {
+        display: inline-block;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+    .active {
+      transform: translateY(0);
+      padding: 3em 0 3em 0;
+    }
+    .mobile-menu {
+      display: block;
+      z-index: 2;
+      position: fixed;
+      right: 1em;
+      padding-top: 1em;
+    }
+    #logo {
+      z-index: 1;
+    }
+  }
+  main {
+    padding-bottom: 14rem;
+  }
   footer {
-    display: none;
+    align-content: space-around;
+    #adress,
+    #footer-contact {
+      align-self: flex-start;
+      li {
+        text-align: left;
+      }
+    }
+    flex-wrap: wrap;
+    height: 14rem;
+
+    .contact-button {
+      button {
+        order: 1;
+        align-self: center;
+        margin:1rem;
+      }
+    }
+    #adress {
+      order: 2;
+      width: calc(min(80%, 200px));
+    }
+    #footer-contact {
+      order: 3;
+      width: calc(min(80%, 360px));
+      padding-bottom: 1em;
+    }
   }
 }

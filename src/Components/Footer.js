@@ -11,7 +11,7 @@ const Footer = (props) => {
           <li>06480 - La Colle sur Loup</li>
         </ul>
       </div>
-      <button onClick={() => props.openModal()}>Message&nbsp;📧</button>
+      <div className="contact-button"><button onClick={() => props.openModal()}>Message&nbsp;📧</button></div>
       <div id="footer-contact">
         <ul>
           <li>📞&nbsp;Téléphone&nbsp;: +33 6 62 91 02 71</li>
