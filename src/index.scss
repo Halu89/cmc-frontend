@@ -16,6 +16,7 @@ $accent-color: #004ba0;
 
 body {
   background-color: $light-base;
+  min-height: 100vh;
 }
 
 .App {
@@ -164,6 +165,36 @@ nav {
     color: gray;
     cursor: default;
   }
+  .mobile-menu {
+    display: none;
+  }
+
+  @media screen and (max-width: 60em) {
+    ul {
+      flex-direction: column;
+      position: absolute;
+      top: -100%;
+      right: 1em;
+      transition: all .5s ease-out;
+      background: linear-gradient(#92c3c5, transparent 90%);
+      z-index: 1;
+      width: 100vw;
+      &::after {
+        display: none;
+      }
+    }
+    .active {
+      top: 0em;
+      padding: 3em;
+    }
+    .mobile-menu {
+      display: block;
+      z-index: 2;
+    }
+    #logo {
+      z-index: 2;
+    }
+  }
 }
 
 // Footer
@@ -233,6 +264,8 @@ main.lecons {
   .atelier {
     color: $text-dark;
     margin: 10px 0 20px 0;
+    padding: 1em;
+    box-shadow: 0.1em 0.1em 2em #baedf0a9;
 
     @media screen and (min-width: 800px) {
       flex: 0 1 calc(50% - 5em);
@@ -276,7 +309,8 @@ main.lecons {
   .instrument {
     display: flex;
     flex-direction: column;
-    // border: 2px solid $accent-color;
+    padding: 1em;
+    box-shadow: 0.1em 0.1em 2em #baedf0a9;
     color: $text-dark;
     margin-bottom: 20px;
 
@@ -464,9 +498,6 @@ main.lecons {
 @media screen and (max-width: 800px) {
   // TODO
 
-  nav {
-    display: none;
-  }
   footer {
     display: none;
   }

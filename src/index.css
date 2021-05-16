@@ -11,6 +11,7 @@
 
 body {
   background-color: #e6fbfc;
+  min-height: 100vh;
 }
 
 .App {
@@ -194,6 +195,42 @@ nav .selected {
   cursor: default;
 }
 
+nav .mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 60em) {
+  nav ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    top: -100%;
+    right: 1em;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+    background: -webkit-gradient(linear, left top, left bottom, from(#92c3c5), color-stop(90%, transparent));
+    background: linear-gradient(#92c3c5, transparent 90%);
+    z-index: 1;
+    width: 100vw;
+  }
+  nav ul::after {
+    display: none;
+  }
+  nav .active {
+    top: 0em;
+    padding: 3em;
+  }
+  nav .mobile-menu {
+    display: block;
+    z-index: 2;
+  }
+  nav #logo {
+    z-index: 2;
+  }
+}
+
 footer {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -285,6 +322,9 @@ main.lecons .cards {
 main.lecons .atelier {
   color: black;
   margin: 10px 0 20px 0;
+  padding: 1em;
+  -webkit-box-shadow: 0.1em 0.1em 2em #baedf0a9;
+          box-shadow: 0.1em 0.1em 2em #baedf0a9;
 }
 
 @media screen and (min-width: 800px) {
@@ -354,6 +394,9 @@ main.lecons .instrument {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 1em;
+  -webkit-box-shadow: 0.1em 0.1em 2em #baedf0a9;
+          box-shadow: 0.1em 0.1em 2em #baedf0a9;
   color: black;
   margin-bottom: 20px;
 }
@@ -587,9 +630,6 @@ main.lecons .instrument #prof-name #name {
 }
 
 @media screen and (max-width: 800px) {
-  nav {
-    display: none;
-  }
   footer {
     display: none;
   }
