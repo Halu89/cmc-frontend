@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 
-const Header = () => {
+const Header = ({ openModal }) => {
   const [isActive, setIsActive] = useState(false);
   const handleClick = () => setIsActive(!isActive);
   const closeMobileMenu = () => setIsActive(false);
@@ -29,7 +29,9 @@ const Header = () => {
           </NavLink>
         </li>
         <li className="navbar-contact-link">
-          <a href="#footer-contact">Contact</a>
+          <a href="#footer-contact" onClick={openModal}>
+            Contact
+          </a>
         </li>
       </ul>
       <div className="mobile-menu">

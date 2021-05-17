@@ -18,9 +18,9 @@ const SvgIllustration = (props) => {
           y2="0.5"
           gradientUnits="objectBoundingBox"
         >
-          <stop offset="0" stop-color="gray" stop-opacity="0.251" />
-          <stop offset="0.54" stop-color="gray" stop-opacity="0.122" />
-          <stop offset="1" stop-color="gray" stop-opacity="0.102" />
+          <stop offset="0" stopColor="gray" stopOpacity="0.251" />
+          <stop offset="0.54" stopColor="gray" stopOpacity="0.122" />
+          <stop offset="1" stopColor="gray" stopOpacity="0.102" />
         </linearGradient>
         <linearGradient
           id="linear-gradient-2"
@@ -287,7 +287,7 @@ const SvgIllustration = (props) => {
             fill="#a1616a"
           />
         </g>
-        <g id="Ground_flowers" class="flowers" data-name="Ground flowers">
+        <g id="Ground_flowers" className="flowers" data-name="Ground flowers">
           <path
             id="Path_282"
             data-name="Path 282"
@@ -795,8 +795,8 @@ const SvgIllustration = (props) => {
             transform="translate(-114.888 -103.324)"
             fill="none"
             stroke="#444053"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <g id="balloon2" transform="translate(-0.912 -1.335)">
             <path
@@ -842,8 +842,8 @@ const SvgIllustration = (props) => {
               transform="translate(-114.771 -103.168)"
               fill="none"
               stroke="#444053"
-              stroke-miterlimit="10"
-              stroke-width="1"
+              strokeMiterlimit="10"
+              strokeWidth="1"
             />
           </g>
           <path
@@ -853,8 +853,8 @@ const SvgIllustration = (props) => {
             transform="translate(-102.045 -110.361)"
             fill="none"
             stroke="#444053"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
         </g>
         <g id="guy">

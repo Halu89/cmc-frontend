@@ -17,18 +17,22 @@ $accent-color: #004ba0;
 body {
   background-color: $light-base;
   position: relative;
-  min-height: 100vh;
+  // min-height: 100vh;
+}
+html {
+  scroll-behavior: smooth;
 }
 ul {
   list-style: none;
 }
 main {
-  padding: 2rem 10% 6rem 10%;
+  padding: 2rem 10% 1rem 10%;
 }
 
 .App {
   display: grid;
   grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
 button {
   background-color: $accent-color;
@@ -53,16 +57,17 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 81vh;
+  padding-top: 0;
+  padding-bottom: 2em;
 
   svg {
     padding: 0;
     width: 55%;
-    height: 550px;
+    max-height: 50vh;
   }
   .presentation {
     width: 45%;
-    padding-bottom: 8vh;
+    // padding-bottom: 8vh;
     display: flex;
     flex-direction: column;
 
@@ -187,16 +192,17 @@ footer {
   justify-content: space-around;
   align-items: center;
   color: $dark-color;
-  position: absolute;
-  bottom: 0;
+  // position: absolute;
+  // bottom: 0;
+  // height: 6rem;
   width: 100vw;
-  height: 6rem;
 
   #adress {
-    width: 35%;
+    width: 20rem;
+    margin: 0.5em 0;
   }
   #footer-contact {
-    width: 45%;
+    width: 350px;
   }
   #footer-copyright {
     position: absolute;
@@ -336,21 +342,19 @@ main.lecons {
     display: grid;
     grid-template-areas:
       ". title close"
-      "form form recap"
-      ". . .";
+      "form form recap";
 
     grid-template-columns: 35% 30% 35%;
-    grid-template-rows: 20% 70% 10%;
+    grid-template-rows: 10% 90%;
     background-color: white;
     width: 80vw;
     max-width: 1000px;
-    height: auto;
-    min-height: 600px;
   }
   #close-btn {
     grid-area: close;
     font-size: 30px;
     justify-self: end;
+    align-self: center;
     margin: 20px;
     cursor: pointer;
     &:hover {
@@ -364,14 +368,17 @@ main.lecons {
   }
   .contact-form {
     grid-area: form;
+    padding: 0 3%;
 
     form {
       display: flex;
       flex-direction: column;
+      justify-content: space-evenly;
       margin-left: 10%;
+      height: 100%;
 
       label {
-        margin: 0.5em 0;
+        // margin: 0.5em 0;
         display: flex;
         flex-direction: column;
       }
@@ -392,12 +399,11 @@ main.lecons {
         content: "✓";
         color: green;
       }
-
       span {
         position: relative;
       }
       textarea {
-        width: 80%;
+        width: calc(max(80%, 250px));
         height: 150px;
         resize: none;
         background-color: #f0564515;
@@ -407,20 +413,23 @@ main.lecons {
       }
 
       button {
-        margin-top: 20px;
         width: 7rem;
+        margin: 2em;
       }
     }
   }
   #adress-recap {
     grid-area: recap;
     display: grid;
-    justify-items: center;
+    place-items: center;
     ul {
       line-height: 2rem;
       span {
         font-size: small;
         padding-right: 10px;
+      }
+      li:nth-child(2) {
+        margin-bottom: 1em;
       }
     }
   }
@@ -476,6 +485,9 @@ main.lecons {
       z-index: 1;
       transition: all 0.3s ease-in-out;
       transform: translateY(-100%);
+      li {
+        width:14em;
+      }
 
       .navbar-contact-link {
         display: inline-block;
@@ -493,33 +505,32 @@ main.lecons {
       display: block;
       z-index: 2;
       position: fixed;
-      right: 1em;
+      right: 7vw;
       padding-top: 1em;
     }
     #logo {
       z-index: 1;
     }
   }
-  main {
-    padding-bottom: 14rem;
-  }
+
   footer {
     align-content: space-around;
     #adress,
     #footer-contact {
       align-self: flex-start;
+      padding: 0.5rem 0;
       li {
         text-align: left;
       }
     }
     flex-wrap: wrap;
-    height: 14rem;
+    // height: 14rem;
 
     .contact-button {
       button {
         order: 1;
         align-self: center;
-        margin:1rem;
+        margin: 1rem;
       }
     }
     #adress {
@@ -528,8 +539,40 @@ main.lecons {
     }
     #footer-contact {
       order: 3;
-      width: calc(min(80%, 360px));
+      // flex: 1 1 auto;
+      width: 350px;
       padding-bottom: 1em;
+    }
+  }
+
+  .modal-parent {
+    #adress-recap {
+      display: none;
+    }
+
+    #modal-children {
+      width: calc(max(80vw, 300px));
+    }
+    .contact-form {
+      grid-area: 2 / 1 / last-line/ end;
+
+      @media screen and (max-width: 500px) {
+        form {
+          align-items: center;
+          margin: 0;
+        }
+        label {
+          width: 250px;
+        }
+      }
+
+      form input {
+        width: 250px;
+      }
+
+      textarea {
+        width: calc(max(80%, 250px));
+      }
     }
   }
 }

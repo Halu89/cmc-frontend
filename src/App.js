@@ -4,13 +4,12 @@ import Header from "./Components/Header";
 import Presentation from "./Components/Presentation";
 import Lecons from "./Components/Lecons";
 import Actus from "./Components/Actus";
-import RainbowText from "./Components/RainbowText";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ContactModal from "./Components/ContactModal";
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(true);
 
   const openModal = () => {
     setModalOpen(true);
@@ -21,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <Header openModal={openModal}/>
         <Switch>
           <Route exact path="/">
             <Presentation />
