@@ -1,19 +1,20 @@
 import React from "react";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
-import Presentation from "./Components/Presentation";
-import Lecons from "./Components/Lecons";
-import Actus from "./Components/Actus";
-
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ContactModal from "./Components/ContactModal";
+import MainContent from "./Components/MainContent";
+import { BrowserRouter } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: { name: "egtrhzf", email: "email@gmail.com", objet: "ezf", message: "zef" },
-      isModalOpen: true,
+      formData: {
+        name: "",
+        email: "",
+        objet: "",
+        message: "",
+      },
+      isModalOpen: false,
     };
   }
 
@@ -34,31 +35,23 @@ class App extends React.Component {
       formData: { name: "", email: "", objet: "", message: "" },
     });
   };
+
   render() {
     return (
       <div className="App">
         <BrowserRouter>
           <Header openModal={this.openModal} />
-          <Switch>
-            <Route exact path="/">
-              <Presentation />
-            </Route>
-            <Route exact path="/actus">
-              <Actus />
-            </Route>
-            <Route exact path="/lecons">
-              <Lecons />
-            </Route>
-          </Switch>
+          <MainContent
+            openModal={this.openModal}
+            closeModal={this.closeModal}
+            resetForm={this.resetForm}
+            formData={this.state.formData}
+            isModalOpen={this.state.isModalOpen}
+            onChange={this.handleInputChange}
+          />
           <Footer openModal={this.openModal} />
-          {this.state.isModalOpen && (
-            <ContactModal
-              formData={this.state.formData}
-              closeModal={this.closeModal}
-              onChange={this.handleInputChange}
-              resetForm={this.resetForm}
-            />
-          )}
+
+          {/* //TODO : Add Back to top button */}
         </BrowserRouter>
       </div>
     );

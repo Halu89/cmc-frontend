@@ -1,39 +1,14 @@
 import React, { Component } from "react";
 
+// import FormInput from "./FormInput";
+
+import { validate, createFetchOptions } from "../utils";
 class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: this.props.formData,
       touched: {},
       errors: {},
-    };
-    this.validate = {
-      name: (value) => {
-        if (!exists(value)) {
-          return `Veuillez indiquer un nom`;
-        } else if (!isMinLength(value, 3)) {
-          return "Le nom doit faire plus de 3 caractères";
-        }
-      },
-      email: (value) => {
-        if (!exists(value)) {
-          return "Veuillez indiquer un mail pour la réponse";
-        }
-        if (!isValidEmail(value)) {
-          return "Veuillez utiliser une adress mail valide";
-        }
-      },
-      objet: (value) => {
-        if (!exists(value)) {
-          return `Veuillez indiquer un objet`;
-        }
-      },
-      message: (value) => {
-        if (!exists(value)) {
-          return `Veuillez remplir ce champ`;
-        }
-      },
     };
   }
 
@@ -45,7 +20,7 @@ class ContactForm extends Component {
     }));
     // Validate the input
     this.setState((prevState) => ({
-      errors: { ...prevState.errors, [name]: this.validate[name](value) },
+      errors: { ...prevState.errors, [name]: validate[name](value) },
     }));
   };
   handleInputChange = (e) => {
@@ -88,7 +63,7 @@ class ContactForm extends Component {
         this.props.closeModal();
 
         // Display a confirmation message
-        console.log("Message sent")
+        console.log("Message sent");
         //TODO
       })
       .catch((e) =>
@@ -96,6 +71,8 @@ class ContactForm extends Component {
         //TODO
         console.log(e)
       );
+
+    //TODO Display a loading animation while mail is sending
   };
 
   render() {
@@ -104,6 +81,15 @@ class ContactForm extends Component {
     return (
       <div className="contact-form">
         <form onSubmit={this.handleSubmit}>
+          {/* <FormInput
+            label="Nom :"
+            name="name"
+            values={values}
+            handleChange={this.handleInputChange}
+            // onBlur={this.handleBlur}
+            touched={touched}
+            errors={errors}
+          /> */}
           <label htmlFor="name">
             Nom :
             <input
@@ -165,60 +151,3 @@ class ContactForm extends Component {
 }
 
 export default ContactForm;
-
-function exists(input) {
-  if (input.trim().length > 0) {
-    return true;
-  }
-  return false;
-}
-
-function isMinLength(input, min) {
-  if (input.length > min) {
-    return `${input} doit faire plus de 3 caractères`;
-  }
-  return false;
-}
-
-function isValidEmail(input) {
-  if (
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-      input
-    )
-  ) {
-    return `Veuillez utiliser une adresse valide.`;
-  }
-  return false;
-}
-
-function createFetchOptions(name, email, object, message) {
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-  // Create the body of the x-www-form-urlencoded form
-  var urlencoded = new URLSearchParams();
-  urlencoded.append("message", constructMail(name, email, object, message));
-  urlencoded.append("emailAddress", email);
-
-  var requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: urlencoded,
-    redirect: "follow",
-  };
-
-  return requestOptions;
-}
-
-function constructMail(name, email, objet, message) {
-  return `
-  Nouveau message de ${name}(${email})
-<br>
-  Objet : ${objet}
-<br>
----------------------------
-<br>
-  Message: 
-  <br>
-  ${message}
-  `;
-}

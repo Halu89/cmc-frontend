@@ -1,16 +1,8 @@
 import React from "react";
-import marked from "marked";
 
-// INSERTS target="_blank" INTO HREF TAGS
-const renderer = new marked.Renderer();
-renderer.link = function (href, title, text) {
-  return `<a target="_blank" href="${href}">${text}</a>`;
-};
-marked.setOptions({
-  breaks: true, // Insert line breaks on single line break
-  baseUrl: process.env.REACT_APP_API_URI, // Prefix the relative url
-  renderer,
-});
+import Loading from "./Loading";
+import Error from "./Error";
+import BlogArticle from "./BlogArticle";
 
 class Actus extends React.Component {
   constructor(props) {
@@ -41,8 +33,12 @@ class Actus extends React.Component {
     try {
       // article : {
       //   id,
-      //   Title,
+      //   Title,  <--- watch the capitalization
       //   Article,
+      //   author : {
+      //      username,
+      //      ...
+      //   }
       // }
       const articles = await fetch(
         process.env.REACT_APP_API_URI + "articles?_sort=published_at:DESC",
@@ -62,35 +58,14 @@ class Actus extends React.Component {
   render() {
     const { error, articles } = this.state;
 
-    // Print errors if any
+    // Print errors if couldn't fetch articles
     if (error) {
-      return (
-        <div className="error">
-          An error occured{" "}
-          {process.env.REACT_APP_ENVIRONMENT === "dev"
-            ? " : " + error.message
-            : " :"}
-        </div>
-      );
+      return <Error error={error} />;
     }
 
     return (
       <main className="actus">
-        {this.state.articles.length === 0 && (
-          <div className="loading">
-            <p className="loading__text">Chargement</p>
-            <div className="lds-roller">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-        )}
+        {this.state.articles.length === 0 && <Loading />}
         {articles.map((article) => {
           return (
             <BlogArticle
@@ -108,25 +83,6 @@ class Actus extends React.Component {
   }
 }
 
-const BlogArticle = ({ id, title, body, publishedAt, author }) => {
-  const date = new Date(publishedAt).toLocaleDateString(undefined, {
-    weekday: "long",
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-  return (
-    <div className="article__card" key={id}>
-      <h2 className="article__title">{title}</h2>
-      <div className="article__date">
-        Publié le {date} {author ? `par ${author.username}` : ""}
-      </div>
-      <hr />
-      <div
-        className="article__text"
-        dangerouslySetInnerHTML={{ __html: marked(body) }}
-      ></div>
-    </div>
-  );
-};
+
+
 export default Actus;
