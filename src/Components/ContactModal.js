@@ -43,7 +43,7 @@ function ContactModal(props) {
       <div className="modal-parent">
         <div id="modal-children" ref={modal}>
           <h1>Contact</h1>
-          <ContactForm submitForm={submitForm} />
+          <ContactForm {...props} submitForm={submitForm} />
           <div id="adress-recap">
             <ul>
               <li><span role="img" aria-label="phone">📞</span>&nbsp;+33 6 62 91 02 71</li>

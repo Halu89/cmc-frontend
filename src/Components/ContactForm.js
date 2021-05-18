@@ -4,12 +4,7 @@ class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: {
-        name: "",
-        email: "",
-        objet: "",
-        message: "",
-      },
+      values: this.props.formData,
       touched: {},
       errors: {},
     };
@@ -44,37 +39,68 @@ class ContactForm extends Component {
 
   handleBlur = (e) => {
     const { name, value } = e.target;
+    // Set field touched
     this.setState((prevState) => ({
       touched: { ...prevState.touched, [name]: true },
     }));
+    // Validate the input
     this.setState((prevState) => ({
       errors: { ...prevState.errors, [name]: this.validate[name](value) },
     }));
   };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    // Validate the form
-
-    // Send the form
-
-    // Reset state
-    // Close the modal
-  };
-
   handleInputChange = (e) => {
-    const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+    const { fieldName } = e.target;
 
+    //Change parent state in App component
+    this.props.onChange(e);
+
+    //Set field touched
     this.setState((prevState) => ({
-      values: { ...prevState.values, [name]: value },
-      touched: { ...prevState.touched, [name]: true },
+      touched: { ...prevState.touched, [fieldName]: true },
     }));
   };
 
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const { name, email, objet, message } = this.props.formData;
+    // Block the submition if form unvalid
+    const { errors } = this.state;
+    for (const err in errors) {
+      if (errors[err]) return;
+    }
+    // Send the form
+    fetch(
+      process.env.REACT_APP_MAIL_API_URI,
+      createFetchOptions(name, email, objet, message)
+    )
+      .then((sentMail) => {
+        // Verify that the request worked
+        if (!sentMail.ok)
+          throw new Error(
+            sentMail.statusText
+              ? sentMail.statusText
+              : `We couldn't send the mail`
+          );
+      })
+      .then(() => {
+        // If successful
+        this.props.resetForm();
+        this.props.closeModal();
+
+        // Display a confirmation message
+        console.log("Message sent")
+        //TODO
+      })
+      .catch((e) =>
+        //Display an error message
+        //TODO
+        console.log(e)
+      );
+  };
+
   render() {
-    const { values, touched, errors } = this.state;
+    const { touched, errors } = this.state;
+    const values = this.props.formData;
     return (
       <div className="contact-form">
         <form onSubmit={this.handleSubmit}>
@@ -163,4 +189,36 @@ function isValidEmail(input) {
     return `Veuillez utiliser une adresse valide.`;
   }
   return false;
+}
+
+function createFetchOptions(name, email, object, message) {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+  // Create the body of the x-www-form-urlencoded form
+  var urlencoded = new URLSearchParams();
+  urlencoded.append("message", constructMail(name, email, object, message));
+  urlencoded.append("emailAddress", email);
+
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: urlencoded,
+    redirect: "follow",
+  };
+
+  return requestOptions;
+}
+
+function constructMail(name, email, objet, message) {
+  return `
+  Nouveau message de ${name}(${email})
+<br>
+  Objet : ${objet}
+<br>
+---------------------------
+<br>
+  Message: 
+  <br>
+  ${message}
+  `;
 }
