@@ -28,7 +28,7 @@ const Header = ({ openModal }) => {
             Actus
           </NavLink>
         </li>
-        <li className="navbar-contact-link">
+        <li onClick={closeMobileMenu}>
           <a href="#footer-contact" onClick={openModal}>
             Contact
           </a>

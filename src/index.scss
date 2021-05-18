@@ -5,11 +5,12 @@ $text-dark: black;
 $text-light: #fe4600;
 $accent-color: #004ba0;
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Indie Flower", "Montserrat", "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,7 +18,7 @@ $accent-color: #004ba0;
 body {
   background-color: $light-base;
   position: relative;
-  // min-height: 100vh;
+  font-family: "Indie Flower", "Montserrat", "Roboto", sans-serif;
 }
 html {
   scroll-behavior: smooth;
@@ -37,6 +38,7 @@ main {
 button {
   background-color: $accent-color;
   border: 1px solid transparent;
+  font: inherit;
   border-radius: 0.2em;
   color: white;
   text-align: center;
@@ -119,35 +121,38 @@ nav {
   display: flex;
   justify-content: space-between;
   color: $text-light;
-  font-family: Montserrat, sans-serif;
   z-index: 1;
+  font-family: "Indie Flower";
   #logo {
     display: grid;
     place-items: center;
-    padding: 2em;
+    padding: 1em;
     img {
-      width: 150px;
+      width: calc(min(250px, 50vw));
     }
   }
 
   ul {
     display: flex;
-    width: 600px;
     justify-content: space-around;
     text-transform: uppercase;
     align-items: center;
-    padding-right: 2em;
+    margin-right: 2rem;
     position: relative;
 
     &::after {
       content: "";
-      border-bottom: 2px solid $text-light;
+      background-image: linear-gradient(to left, $text-light, transparent);
+      height: 2px;
       width: clamp(700px, 50vw, 1200px);
       position: absolute;
       bottom: 2rem;
-      right: 5%;
+      right: 2rem;
     }
 
+    li {
+      margin-right: 2em;
+    }
     a {
       text-decoration: none;
       font-size: 32px;
@@ -180,9 +185,10 @@ nav {
   .mobile-menu {
     display: none;
   }
-  .navbar-contact-link {
-    display: none;
-  }
+  
+  // .navbar-contact-link {
+  //   display: none;
+  // }
 }
 
 // Footer
@@ -192,17 +198,17 @@ footer {
   justify-content: space-around;
   align-items: center;
   color: $dark-color;
-  // position: absolute;
-  // bottom: 0;
-  // height: 6rem;
-  width: 100vw;
 
   #adress {
     width: 20rem;
     margin: 0.5em 0;
   }
   #footer-contact {
-    width: 350px;
+    width: 20rem;
+
+    li:nth-child(2) {
+      font-size: 0.8em;
+    }
   }
   #footer-copyright {
     position: absolute;
@@ -266,7 +272,6 @@ main.lecons {
     }
 
     p {
-      // margin: 15px 25px;
       line-height: 1.3rem;
       font-size: 18px;
     }
@@ -378,7 +383,6 @@ main.lecons {
       height: 100%;
 
       label {
-        // margin: 0.5em 0;
         display: flex;
         flex-direction: column;
       }
@@ -430,6 +434,7 @@ main.lecons {
       }
       li:nth-child(2) {
         margin-bottom: 1em;
+        font-size: 0.8em;
       }
     }
   }
@@ -437,41 +442,163 @@ main.lecons {
 
 // Actus
 .actus {
-  display: block;
-  padding: 20px 15%;
+  width: 80vw;
 
-  .article-card {
-    margin-bottom: 25px;
-    margin-left: 25px;
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    h2.article-title {
-      color: $dark-color;
+    &__text {
       font-size: 2em;
     }
-    .date {
-      color: #1976d2;
+
+    .lds-roller {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+      transform: scale(0.8);
+    }
+    .lds-roller div {
+      animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      transform-origin: 40px 40px;
+    }
+    .lds-roller div:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: $dark-color;
+      margin: -4px 0 0 -4px;
+    }
+    .lds-roller div:nth-child(1) {
+      animation-delay: -0.036s;
+    }
+    .lds-roller div:nth-child(1):after {
+      top: 63px;
+      left: 63px;
+    }
+    .lds-roller div:nth-child(2) {
+      animation-delay: -0.072s;
+    }
+    .lds-roller div:nth-child(2):after {
+      top: 68px;
+      left: 56px;
+    }
+    .lds-roller div:nth-child(3) {
+      animation-delay: -0.108s;
+    }
+    .lds-roller div:nth-child(3):after {
+      top: 71px;
+      left: 48px;
+    }
+    .lds-roller div:nth-child(4) {
+      animation-delay: -0.144s;
+    }
+    .lds-roller div:nth-child(4):after {
+      top: 72px;
+      left: 40px;
+    }
+    .lds-roller div:nth-child(5) {
+      animation-delay: -0.18s;
+    }
+    .lds-roller div:nth-child(5):after {
+      top: 71px;
+      left: 32px;
+    }
+    .lds-roller div:nth-child(6) {
+      animation-delay: -0.216s;
+    }
+    .lds-roller div:nth-child(6):after {
+      top: 68px;
+      left: 24px;
+    }
+    .lds-roller div:nth-child(7) {
+      animation-delay: -0.252s;
+    }
+    .lds-roller div:nth-child(7):after {
+      top: 63px;
+      left: 17px;
+    }
+    .lds-roller div:nth-child(8) {
+      animation-delay: -0.288s;
+    }
+    .lds-roller div:nth-child(8):after {
+      top: 56px;
+      left: 12px;
+    }
+    @keyframes lds-roller {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  .article {
+    &__card {
+      margin: 1rem 3rem;
+      font-family: "Montserrat";
+    }
+    &__title {
+      color: $text-light;
+      font-size: 2.5rem;
+      line-height: 1.5;
+      font-family: "Indie Flower";
+    }
+    &__date {
+      color: $accent-color;
       font-size: small;
       margin: 5px 0;
     }
-
     hr {
       border: 0;
       height: 1px;
       background: #333;
-      width: 40%;
+      width: 60%;
       background-image: linear-gradient(to right, #333, #ccc);
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
     }
 
-    .article-text {
-      margin-left: 5px;
+    &__text {
+      ul {
+        list-style-type: disc; // Reset the default styling on lists
+      }
+      li {
+        list-style-position: inside; //Avoid the numbers in ol being outside the card
+      }
+
+      > * {
+        margin: 0.5em 0.5em;
+      }
+      code {
+        font-size: 1.2em;
+      }
+      blockquote {
+        position: relative;
+        padding-left: 1em;
+        border-left: 0.2em solid #039be5;
+        font-family: "Roboto", serif;
+        font-size: 1.2em;
+        line-height: 1.5em;
+      }
     }
   }
+}
 
-  img {
-    max-width: 500px;
-    max-height: 500px;
-  }
+img {
+  max-width: calc(min(500px, 100%));
+  max-height: calc(min(500px, 100%));
+}
+
+.error {
+  text-align: center;
+  margin: 2em;
 }
 
 // Mobile Design
@@ -486,7 +613,7 @@ main.lecons {
       transition: all 0.3s ease-in-out;
       transform: translateY(-100%);
       li {
-        width:14em;
+        width: 14em;
       }
 
       .navbar-contact-link {
@@ -517,7 +644,6 @@ main.lecons {
     align-content: space-around;
     #adress,
     #footer-contact {
-      align-self: flex-start;
       padding: 0.5rem 0;
       li {
         text-align: left;
@@ -539,9 +665,7 @@ main.lecons {
     }
     #footer-contact {
       order: 3;
-      // flex: 1 1 auto;
-      width: 350px;
-      padding-bottom: 1em;
+      padding-bottom: 1rem;
     }
   }
 

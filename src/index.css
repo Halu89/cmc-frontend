@@ -1,10 +1,11 @@
 @charset "UTF-8";
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "Indie Flower", "Montserrat", "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,6 +13,7 @@
 body {
   background-color: #e6fbfc;
   position: relative;
+  font-family: "Indie Flower", "Montserrat", "Roboto", sans-serif;
 }
 
 html {
@@ -37,6 +39,7 @@ main {
 button {
   background-color: #004ba0;
   border: 1px solid transparent;
+  font: inherit;
   border-radius: 0.2em;
   color: white;
   text-align: center;
@@ -142,43 +145,48 @@ nav {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: #fe4600;
-  font-family: Montserrat, sans-serif;
   z-index: 1;
+  font-family: "Indie Flower";
 }
 
 nav #logo {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  padding: 2em;
+  padding: 1em;
 }
 
 nav #logo img {
-  width: 150px;
+  width: calc(min(250px, 50vw));
 }
 
 nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 600px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   text-transform: uppercase;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-right: 2em;
+  margin-right: 2rem;
   position: relative;
 }
 
 nav ul::after {
   content: "";
-  border-bottom: 2px solid #fe4600;
+  background-image: -webkit-gradient(linear, right top, left top, from(#fe4600), to(transparent));
+  background-image: linear-gradient(to left, #fe4600, transparent);
+  height: 2px;
   width: clamp(700px, 50vw, 1200px);
   position: absolute;
   bottom: 2rem;
-  right: 5%;
+  right: 2rem;
+}
+
+nav ul li {
+  margin-right: 2em;
 }
 
 nav ul a {
@@ -215,10 +223,6 @@ nav .mobile-menu {
   display: none;
 }
 
-nav .navbar-contact-link {
-  display: none;
-}
-
 footer {
   background-color: #f5c8c8;
   display: -webkit-box;
@@ -230,7 +234,6 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   color: #7f0000;
-  width: 100vw;
 }
 
 footer #adress {
@@ -239,7 +242,11 @@ footer #adress {
 }
 
 footer #footer-contact {
-  width: 350px;
+  width: 20rem;
+}
+
+footer #footer-contact li:nth-child(2) {
+  font-size: 0.8em;
 }
 
 footer #footer-copyright {
@@ -568,46 +575,219 @@ main.lecons .instrument #prof-name #name {
 
 .modal-parent #adress-recap ul li:nth-child(2) {
   margin-bottom: 1em;
+  font-size: 0.8em;
 }
 
 .actus {
-  display: block;
-  padding: 20px 15%;
+  width: 80vw;
 }
 
-.actus .article-card {
-  margin-bottom: 25px;
-  margin-left: 25px;
+.actus .loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.actus .article-card h2.article-title {
-  color: #7f0000;
+.actus .loading__text {
   font-size: 2em;
 }
 
-.actus .article-card .date {
-  color: #1976d2;
+.actus .loading .lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.actus .loading .lds-roller div {
+  -webkit-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  -webkit-transform-origin: 40px 40px;
+          transform-origin: 40px 40px;
+}
+
+.actus .loading .lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7f0000;
+  margin: -4px 0 0 -4px;
+}
+
+.actus .loading .lds-roller div:nth-child(1) {
+  -webkit-animation-delay: -0.036s;
+          animation-delay: -0.036s;
+}
+
+.actus .loading .lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+
+.actus .loading .lds-roller div:nth-child(2) {
+  -webkit-animation-delay: -0.072s;
+          animation-delay: -0.072s;
+}
+
+.actus .loading .lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+
+.actus .loading .lds-roller div:nth-child(3) {
+  -webkit-animation-delay: -0.108s;
+          animation-delay: -0.108s;
+}
+
+.actus .loading .lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+
+.actus .loading .lds-roller div:nth-child(4) {
+  -webkit-animation-delay: -0.144s;
+          animation-delay: -0.144s;
+}
+
+.actus .loading .lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+
+.actus .loading .lds-roller div:nth-child(5) {
+  -webkit-animation-delay: -0.18s;
+          animation-delay: -0.18s;
+}
+
+.actus .loading .lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+
+.actus .loading .lds-roller div:nth-child(6) {
+  -webkit-animation-delay: -0.216s;
+          animation-delay: -0.216s;
+}
+
+.actus .loading .lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+
+.actus .loading .lds-roller div:nth-child(7) {
+  -webkit-animation-delay: -0.252s;
+          animation-delay: -0.252s;
+}
+
+.actus .loading .lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+
+.actus .loading .lds-roller div:nth-child(8) {
+  -webkit-animation-delay: -0.288s;
+          animation-delay: -0.288s;
+}
+
+.actus .loading .lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+
+@-webkit-keyframes lds-roller {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes lds-roller {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.actus .article__card {
+  margin: 1rem 3rem;
+  font-family: "Montserrat";
+}
+
+.actus .article__title {
+  color: #fe4600;
+  font-size: 2.5rem;
+  line-height: 1.5;
+  font-family: "Indie Flower";
+}
+
+.actus .article__date {
+  color: #004ba0;
   font-size: small;
   margin: 5px 0;
 }
 
-.actus .article-card hr {
+.actus .article hr {
   border: 0;
   height: 1px;
   background: #333;
-  width: 40%;
+  width: 60%;
   background-image: -webkit-gradient(linear, left top, right top, from(#333), to(#ccc));
   background-image: linear-gradient(to right, #333, #ccc);
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
-.actus .article-card .article-text {
-  margin-left: 5px;
+.actus .article__text ul {
+  list-style-type: disc;
 }
 
-.actus img {
-  max-width: 500px;
-  max-height: 500px;
+.actus .article__text li {
+  list-style-position: inside;
+}
+
+.actus .article__text > * {
+  margin: 0.5em 0.5em;
+}
+
+.actus .article__text code {
+  font-size: 1.2em;
+}
+
+.actus .article__text blockquote {
+  position: relative;
+  padding-left: 1em;
+  border-left: 0.2em solid #039be5;
+  font-family: "Roboto", serif;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+img {
+  max-width: calc(min(500px, 100%));
+  max-height: calc(min(500px, 100%));
+}
+
+.error {
+  text-align: center;
+  margin: 2em;
 }
 
 @media screen and (max-width: 60em) {
@@ -658,8 +838,6 @@ main.lecons .instrument #prof-name #name {
   }
   footer #adress,
   footer #footer-contact {
-    -ms-flex-item-align: start;
-        align-self: flex-start;
     padding: 0.5rem 0;
   }
   footer #adress li,
@@ -685,8 +863,7 @@ main.lecons .instrument #prof-name #name {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
-    width: 350px;
-    padding-bottom: 1em;
+    padding-bottom: 1rem;
   }
   .modal-parent #adress-recap {
     display: none;

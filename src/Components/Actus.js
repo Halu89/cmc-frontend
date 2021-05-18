@@ -39,6 +39,11 @@ class Actus extends React.Component {
     };
 
     try {
+      // article : {
+      //   id,
+      //   Title,
+      //   Article,
+      // }
       const articles = await fetch(
         process.env.REACT_APP_API_URI + "articles?_sort=published_at:DESC",
         {
@@ -59,29 +64,43 @@ class Actus extends React.Component {
 
     // Print errors if any
     if (error) {
-      return <div>An error occured: {error.message}</div>;
+      return (
+        <div className="error">
+          An error occured{" "}
+          {process.env.REACT_APP_ENVIRONMENT === "dev"
+            ? " : " + error.message
+            : " :"}
+        </div>
+      );
     }
 
     return (
       <main className="actus">
-        {articles.map((article) => {
-          const publishedAt = new Date(article.published_at);
-          const date = publishedAt.toLocaleDateString(undefined, {
-            weekday: "long",
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          });
-          return (
-            <div className="article-card" key={article.id}>
-              <h2 className="article-title">{article.Title}</h2>
-              <div className="date">Publié le {date}</div>
-              <hr />
-              <div
-                className="article-text"
-                dangerouslySetInnerHTML={{ __html: marked(article.Article) }}
-              ></div>
+        {this.state.articles.length === 0 && (
+          <div className="loading">
+            <p className="loading__text">Chargement</p>
+            <div className="lds-roller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
+          </div>
+        )}
+        {articles.map((article) => {
+          return (
+            <BlogArticle
+              id={article.id}
+              title={article.Title}
+              body={article.Article}
+              publishedAt={article.published_at}
+              author={article.author}
+              key={article.id}
+            />
           );
         })}
       </main>
@@ -89,4 +108,25 @@ class Actus extends React.Component {
   }
 }
 
+const BlogArticle = ({ id, title, body, publishedAt, author }) => {
+  const date = new Date(publishedAt).toLocaleDateString(undefined, {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+  return (
+    <div className="article__card" key={id}>
+      <h2 className="article__title">{title}</h2>
+      <div className="article__date">
+        Publié le {date} {author ? `par ${author.username}` : ""}
+      </div>
+      <hr />
+      <div
+        className="article__text"
+        dangerouslySetInnerHTML={{ __html: marked(body) }}
+      ></div>
+    </div>
+  );
+};
 export default Actus;

@@ -47,7 +47,7 @@ function ContactModal(props) {
           <div id="adress-recap">
             <ul>
               <li><span role="img" aria-label="phone">📞</span>&nbsp;+33 6 62 91 02 71</li>
-              <li style={{ fontSize: ".8em" }}>
+              <li>
               <span role="img" aria-label="mail">📧</span>&nbsp;ecolemusiquecmc.collesurloup@gmail.com
               </li>
               <li><span role="img" aria-label="house">🏠</span>&nbsp;Centre Musical Collois</li>
