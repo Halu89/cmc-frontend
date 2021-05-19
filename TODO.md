@@ -5,6 +5,7 @@
 
 []  Add a "back to top" button
 []  Animate the svg
+[]  Style the error component
 
 []  Deploy the strapi backend and DB
 []  Deploy the frontend

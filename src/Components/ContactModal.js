@@ -1,30 +1,23 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ContactForm from "./ContactForm";
 
 function ContactModal(props) {
   const modal = useRef(null);
 
   // Close Modal on escape press
-  const escapeListener = useCallback(
-    (e) => {
-      if (e.key === "Escape") {
-        props.closeModal();
-      }
-    },
-    [props]
-  );
-
+  const escapeListener = (e) => {
+    if (e.key === "Escape") {
+      props.closeModal();
+    }
+  };
+  
   // To close modal on click outside
-
-  const clickListener = useCallback(
-    (e) => {
-      if (!modal.current.contains(e.target)) {
-        props.closeModal();
-      }
-    },
-    [props]
-  );
-
+  const clickListener = (e) => {
+    // Optional chaining : current can be null if we click on the close button
+    if (!modal.current?.contains(e.target)) {
+      props.closeModal();
+    }
+  };
   useEffect(() => {
     document.addEventListener("click", clickListener);
     document.addEventListener("keyup", escapeListener);
@@ -39,7 +32,7 @@ function ContactModal(props) {
       <div className="modal-parent">
         <div id="modal-children" ref={modal}>
           <h1>Contact</h1>
-          <ContactForm {...props}/>
+          <ContactForm {...props} />
           <AdressRecap />
           <span id="close-btn" onClick={props.closeModal}>
             X
