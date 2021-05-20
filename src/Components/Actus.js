@@ -60,7 +60,11 @@ class Actus extends React.Component {
 
     // Print errors if couldn't fetch articles
     if (error) {
-      return <Error error={error} />;
+      return (
+        <main className="actus">
+          <Error error={error} />
+        </main>
+      );
     }
 
     return (
@@ -82,7 +86,5 @@ class Actus extends React.Component {
     );
   }
 }
-
-
 
 export default Actus;

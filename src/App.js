@@ -8,12 +8,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: {
-        name: "",
-        email: "",
-        objet: "",
-        message: "",
-      },
       isModalOpen: false,
     };
   }
@@ -24,17 +18,6 @@ class App extends React.Component {
   closeModal = () => {
     this.setState({ isModalOpen: false });
   };
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
-    this.setState((prevState) => ({
-      formData: { ...prevState.formData, [name]: value },
-    }));
-  };
-  resetForm = () => {
-    this.setState({
-      formData: { name: "", email: "", objet: "", message: "" },
-    });
-  };
 
   render() {
     return (
@@ -44,10 +27,7 @@ class App extends React.Component {
           <MainContent
             openModal={this.openModal}
             closeModal={this.closeModal}
-            resetForm={this.resetForm}
-            formData={this.state.formData}
             isModalOpen={this.state.isModalOpen}
-            onChange={this.handleInputChange}
           />
           <Footer openModal={this.openModal} />
 

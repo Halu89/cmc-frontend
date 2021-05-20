@@ -10,7 +10,7 @@ function ContactModal(props) {
       props.closeModal();
     }
   };
-  
+
   // To close modal on click outside
   const clickListener = (e) => {
     // Optional chaining : current can be null if we click on the close button
@@ -34,9 +34,13 @@ function ContactModal(props) {
           <h1>Contact</h1>
           <ContactForm {...props} />
           <AdressRecap />
-          <span id="close-btn" onClick={props.closeModal}>
+          <button
+            id="close-btn"
+            className="close-btn"
+            onClick={props.closeModal}
+          >
             X
-          </span>
+          </button>
         </div>
       </div>
     </React.Fragment>

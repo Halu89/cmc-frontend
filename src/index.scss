@@ -31,8 +31,8 @@ main {
 }
 
 .App {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 button {
@@ -51,6 +51,16 @@ button {
     background-color: $base-color;
     border: 1px solid white;
     box-shadow: 2px 3px 10px $dark-color;
+  }
+  &.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: inherit;
+    &:hover {
+      box-shadow: none;
+      font-weight: bolder;
+    }
   }
 }
 
@@ -185,7 +195,7 @@ nav {
   .mobile-menu {
     display: none;
   }
-  
+
   // .navbar-contact-link {
   //   display: none;
   // }
@@ -194,6 +204,7 @@ nav {
 // Footer
 footer {
   background-color: #f5c8c8;
+  margin-top: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -360,11 +371,7 @@ main.lecons {
     font-size: 30px;
     justify-self: end;
     align-self: center;
-    margin: 20px;
-    cursor: pointer;
-    &:hover {
-      font-weight: bolder;
-    }
+    padding: 20px;
   }
   h1 {
     grid-area: title;
@@ -589,16 +596,52 @@ main.lecons {
       }
     }
   }
+
+  img {
+    max-width: calc(min(500px, 100%));
+    max-height: calc(min(500px, 100%));
+  }
+
+  .error {
+    text-align: center;
+    margin: 2em;
+  }
 }
 
-img {
-  max-width: calc(min(500px, 100%));
-  max-height: calc(min(500px, 100%));
+// Page Not Found
+.not-found {
+  display: grid;
+  place-items: center;
+  padding: 2em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
 }
 
-.error {
+//Flash message
+.flash {
+  position: relative;
+  width: 80%;
+  align-self: center;
+  height: fit-content;
   text-align: center;
-  margin: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.3em;
+  margin-top: 0.5em;
+
+  &--success {
+    background: rgba(74, 197, 129, 0.582);
+  }
+  &--error {
+    background: rgba(199, 93, 89, 0.438);
+  }
+  &__message {
+    width: 100%;
+    margin: 0 1em;
+    font-family: "Montserrat";
+    font-size: .9em;
+  }
 }
 
 // Mobile Design
@@ -642,6 +685,7 @@ img {
 
   footer {
     align-content: space-around;
+    margin-top: auto;
     #adress,
     #footer-contact {
       padding: 0.5rem 0;

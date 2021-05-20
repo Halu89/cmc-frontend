@@ -29,10 +29,13 @@ main {
 }
 
 .App {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: auto 1fr auto;
-      grid-template-rows: auto 1fr auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   min-height: 100vh;
 }
 
@@ -54,6 +57,19 @@ button:hover {
   border: 1px solid white;
   -webkit-box-shadow: 2px 3px 10px #7f0000;
           box-shadow: 2px 3px 10px #7f0000;
+}
+
+button.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: inherit;
+}
+
+button.close-btn:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  font-weight: bolder;
 }
 
 .main-presentation {
@@ -225,6 +241,7 @@ nav .mobile-menu {
 
 footer {
   background-color: #f5c8c8;
+  margin-top: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -464,12 +481,7 @@ main.lecons .instrument #prof-name #name {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin: 20px;
-  cursor: pointer;
-}
-
-.modal-parent #close-btn:hover {
-  font-weight: bolder;
+  padding: 20px;
 }
 
 .modal-parent h1 {
@@ -780,14 +792,60 @@ main.lecons .instrument #prof-name #name {
   line-height: 1.5em;
 }
 
-img {
+.actus img {
   max-width: calc(min(500px, 100%));
   max-height: calc(min(500px, 100%));
 }
 
-.error {
+.actus .error {
   text-align: center;
   margin: 2em;
+}
+
+.not-found {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  padding: 2em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+}
+
+.flash {
+  position: relative;
+  width: 80%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.3em;
+  margin-top: 0.5em;
+}
+
+.flash--success {
+  background: rgba(74, 197, 129, 0.582);
+}
+
+.flash--error {
+  background: rgba(199, 93, 89, 0.438);
+}
+
+.flash__message {
+  width: 100%;
+  margin: 0 1em;
+  font-family: "Montserrat";
+  font-size: .9em;
 }
 
 @media screen and (max-width: 60em) {
@@ -833,6 +891,7 @@ img {
   footer {
     -ms-flex-line-pack: distribute;
         align-content: space-around;
+    margin-top: auto;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }

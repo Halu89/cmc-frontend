@@ -3,6 +3,10 @@ import React, { Component } from "react";
 // import FormInput from "./FormInput";
 
 import { validate, createFetchOptions } from "../utils";
+const flashType = {
+  success: "success",
+  error: "error",
+};
 class ContactForm extends Component {
   constructor(props) {
     super(props);
@@ -38,17 +42,34 @@ class ContactForm extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, objet, message } = this.props.formData;
-    // Block the submition if form unvalid
+    // Block the submition
+    //if form unvalid
     const { errors } = this.state;
     for (const err in errors) {
       if (errors[err]) return;
     }
+    //or if message already sending
+    if (this.props.isMessageSending) return;
+
+    //Display a loading message while mail is sending
+    // TODO : Add a loading spinner
+    this.props.addFlash({
+      type: flashType.success,
+      message: "Envoi du message en cours",
+    });
+    this.props.setMessageSending(true);
+    this.props.closeModal();
+
     // Send the form
     fetch(
-      process.env.REACT_APP_MAIL_API_URI,
+      // process.env.REACT_APP_MAIL_API_URI,
+      "https://zefzefkjbjhbjhreergre.com", // For testing error message
       createFetchOptions(name, email, objet, message)
     )
       .then((sentMail) => {
+        this.props.removePreviousFlash();
+        this.props.setMessageSending(false);
+
         // Verify that the request worked
         if (!sentMail.ok)
           throw new Error(
@@ -60,19 +81,26 @@ class ContactForm extends Component {
       .then(() => {
         // If successful
         this.props.resetForm();
-        this.props.closeModal();
-
         // Display a confirmation message
+        this.props.addFlash({
+          type: flashType.success,
+          message: "Merci pour votre message ❤",
+        });
         console.log("Message sent");
-        //TODO
       })
-      .catch((e) =>
-        //Display an error message
-        //TODO
-        console.log(e)
-      );
+      .catch((e) => {
+        this.props.removePreviousFlash();
+        this.props.setMessageSending(false);
 
-    //TODO Display a loading animation while mail is sending
+        //Display an error message
+        this.props.addFlash({
+          type: flashType.error,
+          message:
+            process.env.REACT_APP_ENVIRONMENT === "dev"
+              ? "Error : " + e.message
+              : "Désolé, une erreur est survenue",
+        });
+      });
   };
 
   render() {
