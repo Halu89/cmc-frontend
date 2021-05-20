@@ -1,4 +1,16 @@
 import React from "react";
+import {
+  batterie,
+  chorale,
+  ensembles,
+  eveil,
+  flute_traversiere,
+  flute_bec,
+  formation,
+  guitare,
+  piano,
+  saxo,
+} from "../assets/images";
 
 const Lecons = () => {
   const ateliers = [
@@ -6,74 +18,69 @@ const Lecons = () => {
       title: "Formation Musicale",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dicta ea vitae nihil, ipsum eaque eum corporis officiis sed, officia, repellat pariatur? Possimus hic odit cumque facere explicabo libero veniam.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      imageUrl: formation,
     },
     {
       title: "Eveil",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dicta ea vitae nihil, ipsum eaque eum corporis officiis sed, officia, repellat pariatur? Possimus hic odit cumque facere explicabo libero veniam.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      imageUrl: eveil,
     },
     {
       title: "Chorale",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dicta ea vitae nihil, ipsum eaque eum corporis officiis sed, officia, repellat pariatur? Possimus hic odit cumque facere explicabo libero veniam.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      imageUrl: chorale,
     },
     {
       title: "Ensembles",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dicta ea vitae nihil, ipsum eaque eum corporis officiis sed, officia, repellat pariatur? Possimus hic odit cumque facere explicabo libero veniam.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      imageUrl: ensembles,
     },
   ];
 
   const instruments = [
     {
       title: "Guitare",
-      horaires: ["Lundi 18h - 20h30", "Samedi 10h - 12h","Lundi 18h - 20h30", "Samedi 10h - 12h"],
+      horaires: [
+        "Lundi 18h - 20h30",
+        "Samedi 10h - 12h",
+        "Lundi 18h - 20h30",
+        "Samedi 10h - 12h",
+      ],
       profName: "Brigitte Thérias",
-      imageUrl:
-        "https://images.unsplash.com/photo-1546058256-47154de4046c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+      imageUrl: guitare,
     },
     {
       title: "Piano",
       horaires: ["Lundi 18h - 20h30"],
       profName: "Brigitte Thérias",
-      imageUrl:
-        "https://images.unsplash.com/photo-1546058256-47154de4046c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+      imageUrl: piano,
     },
     {
       title: "Clarinette",
       horaires: ["Lundi 18h - 20h30", "Lundi 18h - 20h30", "Samedi 10h - 12h"],
       profName: "Brigitte Thérias",
-      imageUrl:
-        "https://images.unsplash.com/photo-1546058256-47154de4046c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+      imageUrl: flute_bec,
     },
     {
       title: "Flute Traversière",
       horaires: ["Lundi 18h - 20h30"],
       profName: "Brigitte Thérias",
-      imageUrl:
-        "https://images.unsplash.com/photo-1546058256-47154de4046c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+      imageUrl: flute_traversiere,
     },
     {
       title: "Saxo",
       horaires: ["Lundi 18h - 20h30"],
       profName: "Brigitte Thérias",
-      imageUrl:
-        "https://images.unsplash.com/photo-1546058256-47154de4046c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+      imageUrl: saxo,
     },
     {
       title: "Batterie",
       horaires: ["Lundi 18h - 20h30"],
       profName: "Brigitte Thérias",
-      imageUrl:
-        "https://images.unsplash.com/photo-1546058256-47154de4046c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+      imageUrl: batterie,
     },
   ];
   return (

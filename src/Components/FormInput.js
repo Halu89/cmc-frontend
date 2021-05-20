@@ -14,6 +14,7 @@ const FormInput = ({ name, label, value, formLogic }) => {
         onChange={handleChange}
         onBlur={onBlur}
         required
+        autoComplete={name === "name" || "email" ? "off" : "on"}
       />
       <span>{touched[name] && errors[name]}</span>
     </label>

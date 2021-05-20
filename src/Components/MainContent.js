@@ -68,7 +68,6 @@ class MainContent extends Component {
 
     return (
       <>
-
         {this.state.flashMessages.length > 0 && flashMessages}
         <Switch>
           <Route exact path="/">

@@ -31,9 +31,9 @@ ul {
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -213,9 +213,6 @@ nav {
     display: none;
   }
 
-  // .navbar-contact-link {
-  //   display: none;
-  // }
 }
 
 // Footer
@@ -276,6 +273,10 @@ main.lecons {
     }
   }
 
+  img {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
   .atelier {
     color: $text-dark;
     margin: 10px 0 20px 0;
@@ -288,10 +289,6 @@ main.lecons {
     @media screen and (min-width: 1300px) {
       flex: 0 1 calc(25% - 1em);
       max-width: 320px;
-    }
-
-    img {
-      width: 100%;
     }
 
     h2 {
@@ -309,17 +306,6 @@ main.lecons {
     flex-direction: column;
     margin-bottom: 35px;
   }
-  @media screen and (min-width: 600px) {
-    .cards {
-      justify-content: space-around;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .instrument {
-      flex: 0 1 calc(50% - 1em);
-    }
-  }
-
   .instrument {
     display: flex;
     flex-direction: column;
@@ -331,14 +317,6 @@ main.lecons {
     @media screen and (min-width: 900px) {
       flex: 0 1 calc(33% - 1em);
       max-width: 320px;
-    }
-
-    img {
-      width: 90%;
-      height: 200px;
-      object-fit: cover;
-      margin-bottom: 10px;
-      align-self: center;
     }
 
     .horaires {
@@ -356,6 +334,16 @@ main.lecons {
       #name {
         font-weight: normal;
       }
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .cards {
+      justify-content: space-around;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .instrument {
+      flex: 0 1 calc(50% - 1em);
     }
   }
 }
@@ -421,7 +409,10 @@ main.lecons {
       input + span::after {
         position: absolute;
         top: -1.7rem;
-        left: 51%;
+        left: -1rem;
+      }
+      input:valid {
+        border-color: green;
       }
       input:valid + span::after {
         content: "✓";

@@ -3,7 +3,7 @@
 [x]  Display a confirmation message or an error
 [x]  Style the error component
 
-[]  Replace the placeholder images
+[x]  Replace the placeholder images
 
 []  Add a "back to top" button
 []  Animate the svg

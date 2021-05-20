@@ -336,6 +336,11 @@ main.lecons .cards {
   }
 }
 
+main.lecons img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
 main.lecons .atelier {
   color: black;
   margin: 10px 0 20px 0;
@@ -361,10 +366,6 @@ main.lecons .atelier {
   }
 }
 
-main.lecons .atelier img {
-  width: 100%;
-}
-
 main.lecons .atelier h2 {
   text-align: center;
   font-size: 26px;
@@ -384,23 +385,6 @@ main.lecons .instruments {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 35px;
-}
-
-@media screen and (min-width: 600px) {
-  main.lecons .cards {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  main.lecons .instrument {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 calc(50% - 1em);
-            flex: 0 1 calc(50% - 1em);
-  }
 }
 
 main.lecons .instrument {
@@ -427,17 +411,6 @@ main.lecons .instrument {
   }
 }
 
-main.lecons .instrument img {
-  width: 90%;
-  height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  margin-bottom: 10px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
 main.lecons .instrument .horaires {
   margin: 0 10px;
   display: -webkit-box;
@@ -462,6 +435,23 @@ main.lecons .instrument #prof-name {
 
 main.lecons .instrument #prof-name #name {
   font-weight: normal;
+}
+
+@media screen and (min-width: 600px) {
+  main.lecons .cards {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main.lecons .instrument {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 calc(50% - 1em);
+            flex: 0 1 calc(50% - 1em);
+  }
 }
 
 .modal-parent {
@@ -558,7 +548,11 @@ main.lecons .instrument #prof-name #name {
 .modal-parent .contact-form form input + span::after {
   position: absolute;
   top: -1.7rem;
-  left: 51%;
+  left: -1rem;
+}
+
+.modal-parent .contact-form form input:valid {
+  border-color: green;
 }
 
 .modal-parent .contact-form form input:valid + span::after {

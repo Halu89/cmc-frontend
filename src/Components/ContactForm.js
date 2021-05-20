@@ -145,6 +145,9 @@ class ContactForm extends Component {
               rows="12"
               cols="40"
               required
+              autoComplete="off"
+              spellCheck="true"
+              style={values.message ? { borderColor: "green" } : {}}
             />
             <span>{touched.message && errors.message}</span>
           </label>
