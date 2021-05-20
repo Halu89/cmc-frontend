@@ -7,6 +7,7 @@ import Actus from "./Actus";
 import ContactModal from "./ContactModal";
 import NoMatch from "./NoMatch";
 import FlashMessage from "./FlashMessage";
+import BackToTopButton from "./BackToTop";
 
 class MainContent extends Component {
   constructor(props) {
@@ -95,6 +96,7 @@ class MainContent extends Component {
             removePreviousFlash={() => this.closeFlash(this.state.id - 1)}
           />
         )}
+        {!this.props.isModalOpen && <BackToTopButton />}
       </>
     );
   }

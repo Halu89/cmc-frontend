@@ -5,7 +5,7 @@
 
 [x]  Replace the placeholder images
 
-[]  Add a "back to top" button
+[x]  Add a "back to top" button
 []  Animate the svg
 
 []  Deploy the strapi backend and DB

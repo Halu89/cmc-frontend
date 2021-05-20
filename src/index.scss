@@ -212,7 +212,6 @@ nav {
   .mobile-menu {
     display: none;
   }
-
 }
 
 // Footer
@@ -651,6 +650,41 @@ main.lecons {
     margin: 0 1em;
     font-family: "Montserrat";
     font-size: 0.9em;
+  }
+}
+
+//Back to top button {
+#scrollTop {
+  position: fixed;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 2.3s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+  border-radius: 50%;
+  transform: scale(0.5);
+  background: transparent;
+  padding: 0;
+  bottom: -1rem;
+  right: -1rem;
+  border: 2px solid transparent;
+  &:hover {
+    opacity: 1;
+    box-shadow: none;
+    border: 2px solid white;
+  }
+  svg {
+    fill: $accent-color;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.5;
+    }
   }
 }
 

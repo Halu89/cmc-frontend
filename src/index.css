@@ -860,6 +860,57 @@ main.lecons .instrument #prof-name #name {
   font-size: 0.9em;
 }
 
+#scrollTop {
+  position: fixed;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  -webkit-animation: fadeIn 2.3s;
+          animation: fadeIn 2.3s;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+  border-radius: 50%;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  background: transparent;
+  padding: 0;
+  bottom: -1rem;
+  right: -1rem;
+  border: 2px solid transparent;
+}
+
+#scrollTop:hover {
+  opacity: 1;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 2px solid white;
+}
+
+#scrollTop svg {
+  fill: #004ba0;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
 @media screen and (max-width: 60em) {
   nav ul {
     -webkit-box-orient: vertical;
