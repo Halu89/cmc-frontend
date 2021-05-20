@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-// import FormInput from "./FormInput";
+import FormInput from "./FormInput";
 
 import { validate, createFetchOptions } from "../utils";
 const flashType = {
@@ -28,14 +28,13 @@ class ContactForm extends Component {
     }));
   };
   handleInputChange = (e) => {
-    const { fieldName } = e.target;
+    const { name, value } = e.target;
 
     //Change parent state in App component
     this.props.onChange(e);
-
     //Set field touched
     this.setState((prevState) => ({
-      touched: { ...prevState.touched, [fieldName]: true },
+      touched: { ...prevState.touched, [name]: value },
     }));
   };
 
@@ -62,8 +61,8 @@ class ContactForm extends Component {
 
     // Send the form
     fetch(
-      // process.env.REACT_APP_MAIL_API_URI,
-      "https://zefzefkjbjhbjhreergre.com", // For testing error message
+      process.env.REACT_APP_MAIL_API_URI,
+      // "https://zefzefkjbjhbjhreergre.com", // For testing error message
       createFetchOptions(name, email, objet, message)
     )
       .then((sentMail) => {
@@ -106,57 +105,33 @@ class ContactForm extends Component {
   render() {
     const { touched, errors } = this.state;
     const values = this.props.formData;
+    const formLogic = {
+      handleChange: this.handleInputChange,
+      onBlur: this.handleBlur,
+      touched,
+      errors,
+    };
     return (
       <div className="contact-form">
         <form onSubmit={this.handleSubmit}>
-          {/* <FormInput
+          <FormInput
             label="Nom :"
             name="name"
-            values={values}
-            handleChange={this.handleInputChange}
-            // onBlur={this.handleBlur}
-            touched={touched}
-            errors={errors}
-          /> */}
-          <label htmlFor="name">
-            Nom :
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={values.name}
-              onChange={this.handleInputChange}
-              onBlur={this.handleBlur}
-              required
-            />
-            <span>{touched.name && errors.name}</span>
-          </label>
-          <label htmlFor="email">
-            Email :
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={values.email}
-              onChange={this.handleInputChange}
-              onBlur={this.handleBlur}
-              required
-            />
-            <span>{touched.email && errors.email}</span>
-          </label>
-          <label htmlFor="objet">
-            Objet :
-            <input
-              type="text"
-              name="objet"
-              id="objet"
-              value={values.objet}
-              onChange={this.handleInputChange}
-              onBlur={this.handleBlur}
-              required
-            />
-            <span>{touched.objet && errors.objet}</span>
-          </label>
+            value={values.name}
+            formLogic={formLogic}
+          />
+          <FormInput
+            label="Email :"
+            name="email"
+            value={values.email}
+            formLogic={formLogic}
+          />
+          <FormInput
+            label="Objet :"
+            name="objet"
+            value={values.objet}
+            formLogic={formLogic}
+          />
           <label htmlFor="message">
             Message :
             <textarea

@@ -1,7 +1,7 @@
 [x]  Move App logic to the Maincontent component
 []  Display a loading animation while sending the mail
-[]  Display a confirmation message or an error
-[]  Style the error component
+[x]  Display a confirmation message or an error
+[x]  Style the error component
 
 []  Replace the placeholder images
 

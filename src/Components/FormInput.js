@@ -1,27 +1,17 @@
 import React from "react";
 // Not working
 
-const FormInput = ({
-  name,
-  handleChange,
-  onBlur,
-  label,
-  values,
-  touched,
-  errors,
-}) => {
+const FormInput = ({ name, label, value, formLogic }) => {
+  const { handleChange, onBlur, touched, errors } = formLogic;
   return (
     <label htmlFor={`"${name}"`}>
       {label}
       <input
         type={name === "email" ? "email" : "text"}
-        name={`"${name}"`}
-        id={`"${name}"`}
-        value={values[name]}
-        onChange={(e) => {
-          handleChange(e);
-          console.log(values);
-        }}
+        name={name}
+        id={name}
+        value={value}
+        onChange={handleChange}
         onBlur={onBlur}
         required
       />
