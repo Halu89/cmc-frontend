@@ -688,6 +688,106 @@ main.lecons {
   }
 }
 
+//Svg Animation
+.main-presentation {
+  svg {
+    #flower {
+      &1 {
+        transform-box: fill-box;
+        transform-origin: bottom;
+        animation: flower1 8s linear infinite alternate-reverse;
+      }
+      &2 {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: flower2 5s linear infinite alternate-reverse;
+      }
+      &3 {
+        transform-box: fill-box;
+        transform-origin: bottom;
+        animation: flower3 6s linear infinite alternate-reverse;
+      }
+
+      @keyframes flower1 {
+        0% {
+          transform: scale(1) translateY(-130px);
+          fill: rgb(172, 132, 132);
+        }
+        100% {
+          transform: scale(1.5) translateY(-80px);
+          fill: rgb(35, 35, 209);
+        }
+      }
+      @keyframes flower2 {
+        0% {
+          transform: scale(1) translateY(-70px) rotate(25deg);
+          fill: rgb(94, 187, 199);
+        }
+        100% {
+          transform: scale(1.5) translateY(-60px);
+          fill: rgb(76, 165, 58);
+        }
+      }
+      @keyframes flower3 {
+        0% {
+          transform: scale(1) translateY(-130px);
+          fill: rgb(143, 40, 40);
+        }
+        100% {
+          transform: scale(1.5) translateY(-80px);
+          fill: rgb(231, 13, 140);
+        }
+      }
+    }
+
+    #right_note {
+      animation: colorchange 17s linear infinite;
+      @keyframes colorchange {
+        0% {
+          fill: $accent-color;
+        }
+        20% {
+          fill: rgb(23, 150, 150);
+        }
+        40% {
+          fill: rgb(17, 119, 114);
+        }
+        60% {
+          fill: rgb(9, 85, 121);
+        }
+        80% {
+          fill: rgb(9, 67, 121);
+        }
+        100% {
+          fill: $accent-color;
+        }
+      }
+    }
+    #left_note {
+      animation: colorchange 21s linear infinite;
+      @keyframes colorchange {
+        0% {
+          fill: $accent-color;
+        }
+        20% {
+          fill: rgb(23, 150, 150);
+        }
+        40% {
+          fill: rgb(17, 119, 114);
+        }
+        60% {
+          fill: rgb(9, 85, 121);
+        }
+        80% {
+          fill: rgb(9, 67, 121);
+        }
+        100% {
+          fill: $accent-color;
+        }
+      }
+    }
+  }
+}
 // Mobile Design
 @media screen and (max-width: 60em) {
   nav {

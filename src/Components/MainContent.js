@@ -7,7 +7,7 @@ import Actus from "./Actus";
 import ContactModal from "./ContactModal";
 import NoMatch from "./NoMatch";
 import FlashMessage from "./FlashMessage";
-import BackToTopButton from "./BackToTop";
+import BackToTopButton from "./BackToTopButton";
 
 class MainContent extends Component {
   constructor(props) {

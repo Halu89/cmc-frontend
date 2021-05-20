@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-// import {FaArrowCircleUp} from 'react-icons/fa';
-// import "../App.css";
+import React, { useEffect, useState } from "react";
+
 const Icon = (props) => (
   <>
     <svg
@@ -31,8 +30,10 @@ const BackToTopButton = () => {
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  window.addEventListener("scroll", checkScrollTop);
+  useEffect(() => {
+    window.addEventListener("scroll", checkScrollTop);
+    return () => window.removeEventListener("scroll", checkScrollTop);
+  });
 
   return (
     <button

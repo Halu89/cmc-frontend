@@ -911,6 +911,178 @@ main.lecons .instrument #prof-name #name {
   }
 }
 
+.main-presentation svg #flower1 {
+  transform-box: fill-box;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  animation: flower1 8s linear infinite alternate-reverse;
+}
+
+.main-presentation svg #flower2 {
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  animation: flower2 5s linear infinite alternate-reverse;
+}
+
+.main-presentation svg #flower3 {
+  transform-box: fill-box;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  animation: flower3 6s linear infinite alternate-reverse;
+}
+
+@-webkit-keyframes flower1 {
+  0% {
+    -webkit-transform: scale(1) translateY(-130px);
+            transform: scale(1) translateY(-130px);
+    fill: #ac8484;
+  }
+  100% {
+    -webkit-transform: scale(1.5) translateY(-80px);
+            transform: scale(1.5) translateY(-80px);
+    fill: #2323d1;
+  }
+}
+
+@keyframes flower1 {
+  0% {
+    -webkit-transform: scale(1) translateY(-130px);
+            transform: scale(1) translateY(-130px);
+    fill: #ac8484;
+  }
+  100% {
+    -webkit-transform: scale(1.5) translateY(-80px);
+            transform: scale(1.5) translateY(-80px);
+    fill: #2323d1;
+  }
+}
+
+@-webkit-keyframes flower2 {
+  0% {
+    -webkit-transform: scale(1) translateY(-70px) rotate(25deg);
+            transform: scale(1) translateY(-70px) rotate(25deg);
+    fill: #5ebbc7;
+  }
+  100% {
+    -webkit-transform: scale(1.5) translateY(-60px);
+            transform: scale(1.5) translateY(-60px);
+    fill: #4ca53a;
+  }
+}
+
+@keyframes flower2 {
+  0% {
+    -webkit-transform: scale(1) translateY(-70px) rotate(25deg);
+            transform: scale(1) translateY(-70px) rotate(25deg);
+    fill: #5ebbc7;
+  }
+  100% {
+    -webkit-transform: scale(1.5) translateY(-60px);
+            transform: scale(1.5) translateY(-60px);
+    fill: #4ca53a;
+  }
+}
+
+@-webkit-keyframes flower3 {
+  0% {
+    -webkit-transform: scale(1) translateY(-130px);
+            transform: scale(1) translateY(-130px);
+    fill: #8f2828;
+  }
+  100% {
+    -webkit-transform: scale(1.5) translateY(-80px);
+            transform: scale(1.5) translateY(-80px);
+    fill: #e70d8c;
+  }
+}
+
+@keyframes flower3 {
+  0% {
+    -webkit-transform: scale(1) translateY(-130px);
+            transform: scale(1) translateY(-130px);
+    fill: #8f2828;
+  }
+  100% {
+    -webkit-transform: scale(1.5) translateY(-80px);
+            transform: scale(1.5) translateY(-80px);
+    fill: #e70d8c;
+  }
+}
+
+.main-presentation svg #right_note {
+  -webkit-animation: colorchange 17s linear infinite;
+          animation: colorchange 17s linear infinite;
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    fill: #004ba0;
+  }
+  20% {
+    fill: #179696;
+  }
+  40% {
+    fill: #117772;
+  }
+  60% {
+    fill: #095579;
+  }
+  80% {
+    fill: #094379;
+  }
+  100% {
+    fill: #004ba0;
+  }
+}
+
+@keyframes colorchange {
+  0% {
+    fill: #004ba0;
+  }
+  20% {
+    fill: #179696;
+  }
+  40% {
+    fill: #117772;
+  }
+  60% {
+    fill: #095579;
+  }
+  80% {
+    fill: #094379;
+  }
+  100% {
+    fill: #004ba0;
+  }
+}
+
+.main-presentation svg #left_note {
+  -webkit-animation: colorchange 21s linear infinite;
+          animation: colorchange 21s linear infinite;
+}
+
+@keyframes colorchange {
+  0% {
+    fill: #004ba0;
+  }
+  20% {
+    fill: #179696;
+  }
+  40% {
+    fill: #117772;
+  }
+  60% {
+    fill: #095579;
+  }
+  80% {
+    fill: #094379;
+  }
+  100% {
+    fill: #004ba0;
+  }
+}
+
 @media screen and (max-width: 60em) {
   nav ul {
     -webkit-box-orient: vertical;
