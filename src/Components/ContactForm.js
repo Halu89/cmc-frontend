@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
 import FormInput from "./FormInput";
-
 import { validate, createFetchOptions } from "../utils";
-const flashType = {
+
+export const flashTypeEnum = {
   success: "success",
   error: "error",
+  loading: "loading",
 };
+
 class ContactForm extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +55,7 @@ class ContactForm extends Component {
     //Display a loading message while mail is sending
     // TODO : Add a loading spinner
     this.props.addFlash({
-      type: flashType.success,
+      type: flashTypeEnum.loading,
       message: "Envoi du message en cours",
     });
     this.props.setMessageSending(true);
@@ -82,7 +84,7 @@ class ContactForm extends Component {
         this.props.resetForm();
         // Display a confirmation message
         this.props.addFlash({
-          type: flashType.success,
+          type: flashTypeEnum.success,
           message: "Merci pour votre message ❤",
         });
         console.log("Message sent");
@@ -93,7 +95,7 @@ class ContactForm extends Component {
 
         //Display an error message
         this.props.addFlash({
-          type: flashType.error,
+          type: flashTypeEnum.error,
           message:
             process.env.REACT_APP_ENVIRONMENT === "dev"
               ? "Error : " + e.message

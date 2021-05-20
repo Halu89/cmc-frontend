@@ -16,7 +16,7 @@ body {
   font-family: "Indie Flower", "Montserrat", "Roboto", sans-serif;
 }
 
-html {
+html:focus-within {
   scroll-behavior: smooth;
 }
 
@@ -24,8 +24,22 @@ ul {
   list-style: none;
 }
 
-main {
-  padding: 2rem 10% 1rem 10%;
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .App {
@@ -37,6 +51,10 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   min-height: 100vh;
+}
+
+main {
+  padding: 2rem 10% 1rem 10%;
 }
 
 button {
@@ -610,135 +628,6 @@ main.lecons .instrument #prof-name #name {
   font-size: 2em;
 }
 
-.actus .loading .lds-roller {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
-}
-
-.actus .loading .lds-roller div {
-  -webkit-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-          animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  -webkit-transform-origin: 40px 40px;
-          transform-origin: 40px 40px;
-}
-
-.actus .loading .lds-roller div:after {
-  content: " ";
-  display: block;
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #7f0000;
-  margin: -4px 0 0 -4px;
-}
-
-.actus .loading .lds-roller div:nth-child(1) {
-  -webkit-animation-delay: -0.036s;
-          animation-delay: -0.036s;
-}
-
-.actus .loading .lds-roller div:nth-child(1):after {
-  top: 63px;
-  left: 63px;
-}
-
-.actus .loading .lds-roller div:nth-child(2) {
-  -webkit-animation-delay: -0.072s;
-          animation-delay: -0.072s;
-}
-
-.actus .loading .lds-roller div:nth-child(2):after {
-  top: 68px;
-  left: 56px;
-}
-
-.actus .loading .lds-roller div:nth-child(3) {
-  -webkit-animation-delay: -0.108s;
-          animation-delay: -0.108s;
-}
-
-.actus .loading .lds-roller div:nth-child(3):after {
-  top: 71px;
-  left: 48px;
-}
-
-.actus .loading .lds-roller div:nth-child(4) {
-  -webkit-animation-delay: -0.144s;
-          animation-delay: -0.144s;
-}
-
-.actus .loading .lds-roller div:nth-child(4):after {
-  top: 72px;
-  left: 40px;
-}
-
-.actus .loading .lds-roller div:nth-child(5) {
-  -webkit-animation-delay: -0.18s;
-          animation-delay: -0.18s;
-}
-
-.actus .loading .lds-roller div:nth-child(5):after {
-  top: 71px;
-  left: 32px;
-}
-
-.actus .loading .lds-roller div:nth-child(6) {
-  -webkit-animation-delay: -0.216s;
-          animation-delay: -0.216s;
-}
-
-.actus .loading .lds-roller div:nth-child(6):after {
-  top: 68px;
-  left: 24px;
-}
-
-.actus .loading .lds-roller div:nth-child(7) {
-  -webkit-animation-delay: -0.252s;
-          animation-delay: -0.252s;
-}
-
-.actus .loading .lds-roller div:nth-child(7):after {
-  top: 63px;
-  left: 17px;
-}
-
-.actus .loading .lds-roller div:nth-child(8) {
-  -webkit-animation-delay: -0.288s;
-          animation-delay: -0.288s;
-}
-
-.actus .loading .lds-roller div:nth-child(8):after {
-  top: 56px;
-  left: 12px;
-}
-
-@-webkit-keyframes lds-roller {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes lds-roller {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
 .actus .article__card {
   margin: 1rem 3rem;
   font-family: "Montserrat";
@@ -802,6 +691,135 @@ main.lecons .instrument #prof-name #name {
   margin: 2em;
 }
 
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.lds-roller div {
+  -webkit-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  -webkit-transform-origin: 40px 40px;
+          transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7f0000;
+  margin: -4px 0 0 -4px;
+}
+
+.lds-roller div:nth-child(1) {
+  -webkit-animation-delay: -0.036s;
+          animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+  -webkit-animation-delay: -0.072s;
+          animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+  -webkit-animation-delay: -0.108s;
+          animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+  -webkit-animation-delay: -0.144s;
+          animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+  -webkit-animation-delay: -0.18s;
+          animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+  -webkit-animation-delay: -0.216s;
+          animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+  -webkit-animation-delay: -0.252s;
+          animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+  -webkit-animation-delay: -0.288s;
+          animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+
+@-webkit-keyframes lds-roller {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes lds-roller {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 .not-found {
   display: -ms-grid;
   display: grid;
@@ -845,7 +863,7 @@ main.lecons .instrument #prof-name #name {
   width: 100%;
   margin: 0 1em;
   font-family: "Montserrat";
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 @media screen and (max-width: 60em) {

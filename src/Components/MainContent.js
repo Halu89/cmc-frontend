@@ -56,7 +56,7 @@ class MainContent extends Component {
       };
     });
   };
-  
+
   setMessageSending = (bool) => {
     this.setState({ isMessageSending: bool });
   };
@@ -65,8 +65,10 @@ class MainContent extends Component {
     const flashMessages = this.state.flashMessages.map((flash, idx) => (
       <FlashMessage flash={flash} key={idx} closeFlash={this.closeFlash} />
     ));
+
     return (
       <>
+
         {this.state.flashMessages.length > 0 && flashMessages}
         <Switch>
           <Route exact path="/">
