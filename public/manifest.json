@@ -1,6 +1,6 @@
 {
   "short_name": "CMC",
-  "name": "Create React App Sample",
+  "name": "Centre Musical Collois",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#e6fbfc",
+  "background_color": "#e6fbfc"
 }
