@@ -3,10 +3,10 @@ import React from "react";
 const Error = ({error}) => {
   return (
     <div className="error">
-      An error occured{" "}
+      Une erreur est survenue avec le serveur{" "}
       {process.env.REACT_APP_ENVIRONMENT === "dev"
         ? " : " + error.message
-        : " :"}
+        : ""}
     </div>
   );
 };

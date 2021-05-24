@@ -41,7 +41,7 @@ class Actus extends React.Component {
       //   }
       // }
       const articles = await fetch(
-        process.env.REACT_APP_API_URI + "articles?_sort=published_at:DESC",
+        process.env.REACT_APP_ARTICLES_API_URI + "articles?_sort=published_at:DESC",
         {
           method: "GET",
           headers: headers,
