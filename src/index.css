@@ -111,7 +111,7 @@ button.close-btn:hover {
 }
 
 .main-presentation .presentation {
-  width: 45%;
+  width: calc(min(45%, 30rem));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,17 +122,19 @@ button.close-btn:hover {
 }
 
 .main-presentation .presentation h1 {
-  display: none;
-  color: #fe4600;
+  color: #7f0000;
   font-size: 2em;
-  margin-bottom: 20px;
-  padding-right: 20px;
-  text-align: right;
+  margin-top: 1rem;
+  text-align: left;
 }
 
 .main-presentation .presentation .presentation-paragraph {
-  padding: 5vh 5vw;
+  margin-top: 1rem;
   line-height: 1.8em;
+}
+
+.main-presentation .presentation .presentation-paragraph:not(:last-of-type) {
+  margin-bottom: 1rem;
 }
 
 .main-presentation .presentation a {
@@ -145,6 +147,7 @@ button.close-btn:hover {
 
 .main-presentation .presentation button {
   font-size: 25px;
+  margin-top: 2rem;
   padding: 0.5em 1.2em;
   -webkit-box-shadow: 4px 6px 27px #004ba0;
           box-shadow: 4px 6px 27px #004ba0;
