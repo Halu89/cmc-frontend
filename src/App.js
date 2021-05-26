@@ -12,6 +12,15 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount = async () => {
+    //Wake up the backend server
+    try {
+      fetch(process.env.REACT_APP_API_URI + "/articles");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   openModal = () => {
     this.setState({ isModalOpen: true });
   };

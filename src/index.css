@@ -603,7 +603,9 @@ main.lecons .instrument #prof-name #name {
 }
 
 .actus {
-  width: 80vw;
+  width: calc(min(80vw, 45rem));
+  padding: 2rem 0 1rem;
+  margin: 0 auto;
 }
 
 .actus .loading {
@@ -623,8 +625,18 @@ main.lecons .instrument #prof-name #name {
 }
 
 .actus .article__card {
-  margin: 1rem 3rem;
   font-family: "Montserrat";
+}
+
+.actus .article__card:not(:last-child) {
+  margin-bottom: 3em;
+}
+
+@media screen and (min-width: 1200px) {
+  .actus .article__card {
+    position: relative;
+    right: 15%;
+  }
 }
 
 .actus .article__title {
@@ -650,6 +662,10 @@ main.lecons .instrument #prof-name #name {
   margin-bottom: 1rem;
 }
 
+.actus .article__text {
+  line-height: 1.8;
+}
+
 .actus .article__text ul {
   list-style-type: disc;
 }
@@ -659,7 +675,7 @@ main.lecons .instrument #prof-name #name {
 }
 
 .actus .article__text > * {
-  margin: 0.5em 0.5em;
+  margin: 0.5em 0;
 }
 
 .actus .article__text code {
@@ -672,7 +688,6 @@ main.lecons .instrument #prof-name #name {
   border-left: 0.2em solid #039be5;
   font-family: "Roboto", serif;
   font-size: 1.2em;
-  line-height: 1.5em;
 }
 
 .actus img {
