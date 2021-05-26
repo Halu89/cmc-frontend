@@ -8,7 +8,7 @@ import ContactModal from "./ContactModal";
 import NoMatch from "./NoMatch";
 import FlashMessage from "./FlashMessage";
 import BackToTopButton from "./BackToTopButton";
-
+import { flashTypeEnum } from "./ContactForm";
 class MainContent extends Component {
   constructor(props) {
     super(props);
@@ -20,14 +20,14 @@ class MainContent extends Component {
         message: "",
       },
       flashMessages: [
-        // {
-        //   type: flashType.success,
-        //   message: "Displayng a success message",
-        //   id: 0,
-        // },
+        {
+          type: flashTypeEnum.disclaimer,
+          message: "Site en construction",
+          id: 0,
+        },
         // { type: flashType.error, message: "Displayng an error message", id: 1 },
       ],
-      id: 2,
+      id: 1,
       isMessageSending: false,
     };
   }

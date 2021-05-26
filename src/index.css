@@ -191,7 +191,7 @@ nav #logo {
 }
 
 nav #logo img {
-  width: calc(min(250px, 50vw));
+  width: calc(min(250px, 30vw));
 }
 
 nav ul {
@@ -858,6 +858,11 @@ main.lecons .instrument #prof-name #name {
           align-items: center;
   border-radius: 0.3em;
   margin-top: 0.5em;
+}
+
+.flash--warning {
+  background: rgba(197, 189, 74, 0.582);
+  padding: 1em;
 }
 
 .flash--success {

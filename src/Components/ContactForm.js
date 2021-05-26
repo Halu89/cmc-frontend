@@ -7,6 +7,8 @@ export const flashTypeEnum = {
   success: "success",
   error: "error",
   loading: "loading",
+  disclaimer:"disclaimer",
+  warning:"warning"
 };
 
 class ContactForm extends Component {

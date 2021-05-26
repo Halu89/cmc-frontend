@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo_small.png";
 
 const Header = ({ openModal }) => {
   const [isActive, setIsActive] = useState(false);
@@ -10,7 +10,7 @@ const Header = ({ openModal }) => {
   return (
     <nav>
       <div id="logo">
-        <img src={logo} alt="Logo" />
+        <img src={logo} alt="Logo" width="250"  />
       </div>
       <ul className={isActive ? "active" : ""}>
         <li onClick={closeMobileMenu}>

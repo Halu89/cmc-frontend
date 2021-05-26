@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SvgIllustration from './SvgIllustration'
+import SvgIllustration from "./SvgIllustration";
 
 const Presentation = () => {
   return (
@@ -8,11 +8,13 @@ const Presentation = () => {
       <div className="presentation">
         <h1>Présentation</h1>
         <p className="presentation-paragraph">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo libero
-          totam exercitationem quidem? Praesentium similique incidunt
-          reprehenderit magni accusamus voluptatem? Repellendus pariatur fuga,
-          ut quas nostrum vero aperiam quod nesciunt accusamus magnam quae magni
-          sequi sit perferendis consectetur reiciendis rem!
+          Au travers de l'apprentissage de la musique, aider les jeunes à se
+          découvrir, s'épanouir et s'intégrer à la vie de leur communauté, en
+          participant à des concerts, auditions, fêtes du village, cérémonies.
+          Initiation musicale sous forme d’ateliers (initiation musicale pour
+          les 5 ans, éveil musical pour les CP/CE1, formation musicale,
+          orchestre à vents et batterie, ensemble instrumentaux, chorale
+          adultes).
         </p>
         <Link to="/lecons">
           <button>Leçons</button>

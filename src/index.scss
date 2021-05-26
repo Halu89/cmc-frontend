@@ -155,7 +155,7 @@ nav {
     place-items: center;
     padding: 1em;
     img {
-      width: calc(min(250px, 50vw));
+      width: calc(min(250px, 30vw));
     }
   }
 
@@ -648,6 +648,10 @@ main.lecons {
   border-radius: 0.3em;
   margin-top: 0.5em;
 
+  &--warning {
+    background: rgba(197, 189, 74, 0.582);
+    padding: 1em
+  }
   &--success {
     background: rgba(74, 197, 129, 0.582);
   }
