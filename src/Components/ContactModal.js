@@ -3,29 +3,36 @@ import ContactForm from "./ContactForm";
 
 function ContactModal(props) {
   const modal = useRef(null);
+  const { closeModal } = props;
 
-  // Close Modal on escape press
-  const escapeListener = (e) => {
-    if (e.key === "Escape") {
-      props.closeModal();
-    }
-  };
-
-  // To close modal on click outside
-  const clickListener = (e) => {
-    // Optional chaining : current can be null if we click on the close button
-    if (!modal.current?.contains(e.target)) {
-      props.closeModal();
-    }
-  };
   useEffect(() => {
-    document.addEventListener("click", clickListener);
+    // Close Modal on escape press
+    const escapeListener = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+
     document.addEventListener("keyup", escapeListener);
     return () => {
-      document.removeEventListener("click", clickListener);
       document.removeEventListener("keyup", escapeListener);
     };
-  });
+  }, [closeModal]);
+
+  useEffect(() => {
+    // To close modal on click outside
+    const clickListener = (e) => {
+      // Optional chaining : current can be null if we click on the close button
+      if (!modal.current?.contains(e.target)) {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("click", clickListener);
+    return () => {
+      document.removeEventListener("click", clickListener);
+    };
+  }, [closeModal]);
 
   return (
     <React.Fragment>

@@ -15,7 +15,7 @@ class App extends React.Component {
   componentDidMount = async () => {
     //Wake up the backend server
     try {
-      fetch(process.env.REACT_APP_ARTICLES_API_URI + "/articles");
+      fetch(process.env.REACT_APP_ARTICLES_API_URI + "articles");
     } catch (e) {
       console.log(e);
     }

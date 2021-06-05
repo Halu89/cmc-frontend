@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Icon = (props) => (
+const Icon = () => (
   <>
     <svg
       x="0px"
@@ -19,21 +19,22 @@ const Icon = (props) => (
 
 const BackToTopButton = () => {
   const [showScroll, setShowScroll] = useState(false);
-  const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 400) {
-      setShowScroll(true);
-    } else if (showScroll && window.pageYOffset <= 400) {
-      setShowScroll(false);
-    }
-  };
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScroll && window.pageYOffset > 400) {
+        setShowScroll(true);
+      } else if (showScroll && window.pageYOffset <= 400) {
+        setShowScroll(false);
+      }
+    };
     window.addEventListener("scroll", checkScrollTop);
     return () => window.removeEventListener("scroll", checkScrollTop);
-  });
+  }, [showScroll]);
 
   return (
     <button
